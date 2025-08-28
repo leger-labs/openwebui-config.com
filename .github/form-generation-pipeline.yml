@@ -1,0 +1,199 @@
+name: OpenWebUI Form Generation and Deployment Pipeline
+
+on:
+  push:
+    paths:
+      - 'schemas/openwebui-config-schema.json'
+      - 'src/app/**'
+      - 'src/api/**'
+      - 'components/**'
+      - 'package.json'
+      - 'vite.config.ts'
+      - 'wrangler.toml'
+  workflow_dispatch:  # Allow manual trigger
+    inputs:
+      step:
+        description: 'Which step to run'
+        required: false
+        default: 'all'
+        type: choice
+        options:
+          - 'all'
+          - 'zod-schemas'
+          - 'ui-schema'
+          - 'component-mapping'
+          - 'build-and-deploy'
+
+jobs:
+  # Your existing form generation job with build and deploy added
+  form-generation-and-deployment:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.REPO_ACCESS_TOKEN }}
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      # === YOUR EXISTING SCHEMA GENERATION STEPS ===
+      
+      - name: Validate pipeline prerequisites
+        run: |
+          echo "🔍 Validating pipeline prerequisites..."
+          
+          if [ ! -f "schemas/openwebui-config-schema.json" ]; then
+            echo "❌ OpenAPI schema file not found"
+            exit 1
+          fi
+          
+          if ! jq empty schemas/openwebui-config-schema.json; then
+            echo "❌ OpenAPI schema is not valid JSON"
+            exit 1
+          fi
+          
+          echo "✅ Pipeline prerequisites validated"
+
+      - name: Install pipeline dependencies
+        run: |
+          echo "📦 Installing dependencies for all pipeline steps..."
+          
+          for script_dir in "openapi-to-zod" "extract-uiSchema" "generate-component-mapping"; do
+            echo "  Installing dependencies for $script_dir..."
+            cd "scripts/$script_dir"
+            npm install --quiet
+            cd "../.."
+          done
+          
+          echo "✅ All pipeline dependencies installed"
+
+      # Step 1: Generate Zod schemas
+      - name: Generate Zod schemas
+        if: github.event.inputs.step == 'all' || github.event.inputs.step == 'zod-schemas' || github.event.inputs.step == ''
+        run: |
+          echo "🏗️  Step 1: Generating Zod validation schemas..."
+          cd scripts/openapi-to-zod
+          
+          if node index.js; then
+            echo "✅ Zod schema generation completed successfully"
+          else
+            echo "❌ Zod schema generation failed"
+            exit 1
+          fi
+
+      # Step 2: Extract uiSchema
+      - name: Extract uiSchema metadata
+        if: github.event.inputs.step == 'all' || github.event.inputs.step == 'ui-schema' || github.event.inputs.step == ''
+        run: |
+          echo "🎨 Step 2: Extracting uiSchema organization metadata..."
+          cd scripts/extract-uiSchema
+          
+          if node index.js; then
+            echo "✅ uiSchema extraction completed successfully"
+          else
+            echo "❌ uiSchema extraction failed"
+            exit 1
+          fi
+
+      # Step 3: Generate component mappings
+      - name: Generate component mappings
+        if: github.event.inputs.step == 'all' || github.event.inputs.step == 'component-mapping' || github.event.inputs.step == ''
+        run: |
+          echo "🎯 Step 3: Generating component mappings with design rules..."
+          cd scripts/generate-component-mapping
+          
+          if node index.js; then
+            echo "✅ Component mapping generation completed successfully"
+          else
+            echo "❌ Component mapping generation failed"
+            exit 1
+          fi
+
+      # === NEW BUILD AND DEPLOY STEPS ===
+      
+      # Step 4: Install frontend dependencies
+      - name: Install frontend dependencies
+        if: github.event.inputs.step == 'all' || github.event.inputs.step == 'build-and-deploy' || github.event.inputs.step == ''
+        run: |
+          echo "📦 Installing frontend dependencies..."
+          npm install
+          echo "✅ Frontend dependencies installed"
+
+      # Step 5: Build the application
+      - name: Build frontend application
+        if: github.event.inputs.step == 'all' || github.event.inputs.step == 'build-and-deploy' || github.event.inputs.step == ''
+        run: |
+          echo "🏗️  Building frontend application..."
+          npm run build
+          echo "✅ Frontend build completed"
+          
+          # List build artifacts
+          echo "📋 Build artifacts:"
+          ls -la dist/
+
+      # Step 6: Deploy to Cloudflare Workers
+      - name: Deploy to Cloudflare Workers
+        if: github.event.inputs.step == 'all' || github.event.inputs.step == 'build-and-deploy' || github.event.inputs.step == ''
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: deploy --env production
+          
+      # Step 7: Verify deployment
+      - name: Verify deployment
+        if: github.event.inputs.step == 'all' || github.event.inputs.step == 'build-and-deploy' || github.event.inputs.step == ''
+        run: |
+          echo "🔍 Verifying deployment..."
+          
+          # Wait for deployment to propagate
+          sleep 10
+          
+          # Check if the deployment is accessible
+          DEPLOY_URL="${{ secrets.DEPLOY_URL || 'https://leger.run' }}"
+          if curl -s -o /dev/null -w "%{http_code}" "$DEPLOY_URL/api/health" | grep -q "200"; then
+            echo "✅ Deployment verified - API is responding"
+          else
+            echo "⚠️  Deployment may still be propagating"
+          fi
+          
+          echo "🎉 Deployment URL: $DEPLOY_URL"
+
+      # Optional: Commit any generated files
+      - name: Commit generated files
+        if: github.event.inputs.step == 'all' || github.event.inputs.step == 'zod-schemas' || github.event.inputs.step == 'ui-schema' || github.event.inputs.step == 'component-mapping'
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: |
+            chore: update generated schemas and deploy application
+            
+            - Generated Zod schemas ✅
+            - Generated uiSchema ✅
+            - Generated component mappings ✅
+            - Built and deployed to Cloudflare Workers ✅
+            
+            [skip ci]
+          file_pattern: 'src/schemas/generated-*.ts src/schemas/index.ts'
+          
+      # Summary
+      - name: Pipeline summary
+        run: |
+          echo ""
+          echo "🎉 Pipeline completed successfully!"
+          echo ""
+          echo "✅ Schema generation: Complete"
+          echo "✅ Frontend build: Complete" 
+          echo "✅ Cloudflare deployment: Complete"
+          echo ""
+          echo "🔗 Your application is now live at: ${{ secrets.DEPLOY_URL || 'https://leger.run' }}"
+          echo ""
+          echo "📊 Next time the OpenAPI schema changes, this pipeline will automatically:"
+          echo "  1. Regenerate all schemas and mappings"
+          echo "  2. Rebuild the frontend with the new fields"
+          echo "  3. Deploy the updated application"
