@@ -4,6 +4,7 @@ import path from 'path'
 
 export default defineConfig({
   plugins: [react()],
+  base: '/', // Ensure correct asset paths for Cloudflare Workers
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
@@ -22,19 +23,10 @@ export default defineConfig({
           'form-vendor': ['react-hook-form', '@hookform/resolvers', 'zod'],
           'utils': ['clsx', 'tailwind-merge', 'class-variance-authority']
         },
-        assetFileNames: (assetInfo) => {
-          const info = assetInfo.name?.split('.') || []
-          const extType = info[info.length - 1] || ''
-          if (/\.(png|jpe?g|svg|gif|tiff|bmp|ico)$/i.test(assetInfo.name || '')) {
-            return `images/[name]-[hash][extname]`
-          }
-          if (extType === 'css') {
-            return `css/[name]-[hash][extname]`
-          }
-          return `assets/[name]-[hash][extname]`
-        },
-        chunkFileNames: 'js/[name]-[hash].js',
-        entryFileNames: 'js/[name]-[hash].js',
+        // Simplified asset naming - all in assets/ directory
+        assetFileNames: 'assets/[name]-[hash][extname]',
+        chunkFileNames: 'assets/[name]-[hash].js',
+        entryFileNames: 'assets/[name]-[hash].js',
       },
     },
     assetsInlineLimit: 4096,
