@@ -1,13 +1,66 @@
 name = "openwebui-config-tool"
 compatibility_date = "2024-03-18"
+send_metrics = false
 
+# Development environment
+[env.development]
+name = "openwebui-config-tool-dev"
+
+# Production environment
 [env.production]
+name = "openwebui-config-tool-prod"
 routes = [
   { pattern = "openwebui-config.com/*", zone_name = "openwebui-config.com" },
 ]
 
+# SPA routing rules for production
 [[env.production.rules]]
 type = "Transform"
 request.uri.path = "/*"
 action = "rewrite"
 action_parameters = { uri = { path = { dynamic = "/index.html" } } }
+
+# Cache static assets aggressively
+[[env.production.rules]]
+type = "Transform"
+request.uri.path = "/assets/*"
+action = "route"
+action_parameters = { 
+  cache = { 
+    cache_level = "cache_everything",
+    edge_cache_ttl = 86400
+  }
+}
+
+# Cache JS and CSS files
+[[env.production.rules]]
+type = "Transform"
+request.uri.path = "*.js"
+action = "route"
+action_parameters = { 
+  cache = { 
+    cache_level = "cache_everything",
+    edge_cache_ttl = 86400
+  }
+}
+
+[[env.production.rules]]
+type = "Transform"
+request.uri.path = "*.css"
+action = "route"
+action_parameters = { 
+  cache = { 
+    cache_level = "cache_everything",
+    edge_cache_ttl = 86400
+  }
+}
+
+# Security headers
+[[env.production.headers]]
+for = "/*"
+[env.production.headers.values]
+X-Frame-Options = "DENY"
+X-Content-Type-Options = "nosniff"
+Referrer-Policy = "strict-origin-when-cross-origin"
+Permissions-Policy = "camera=(), microphone=(), geolocation=(), payment=()"
+Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; font-src 'self' data:; img-src 'self' data: blob:; connect-src 'self'"
