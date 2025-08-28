@@ -24,6 +24,7 @@ jobs:
       - uses: anthropics/claude-code-action@beta
         with:
           anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          github_token:      ${{ secrets.GITHUB_TOKEN }}
           timeout_minutes: "60"
           allowed_tools: "str_replace_editor,create_file,edit_file,view_file,list_files,Bash(*:*)"
           custom_instructions: |
