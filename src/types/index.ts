@@ -32,3 +32,21 @@ export interface ExportResult {
   content?: string
   error?: string
 }
+
+export interface StorageConfig {
+  key: string
+  value: string | ConfigData | AppMode
+  timestamp: number
+  version?: string
+}
+
+export interface StorageHistory {
+  configs: StorageConfig[]
+  maxSize: number
+}
+
+export interface AutoSaveOptions {
+  enabled: boolean
+  debounceMs: number
+  maxHistorySize: number
+}
