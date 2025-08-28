@@ -27,4 +27,4 @@ jobs:
           anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
           github_token:      ${{ secrets.GITHUB_TOKEN }}
           claude_args: |
-            --allowed-tools str_replace_editor,create_file,edit_file,view_file,list_files,Bash(*:*)
+            --allowed-tools str_replace_editor,create_file,edit_file,view_file,list_files,Bash(*:*),MultiEdit,Grep,Glob,LS
