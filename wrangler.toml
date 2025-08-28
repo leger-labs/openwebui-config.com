@@ -1,4 +1,4 @@
-name = "openwebui-config"
+name = "openwebui-config-tool"
 compatibility_date = "2025-04-01"
 send_metrics = false
 
