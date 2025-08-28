@@ -24,6 +24,9 @@ on:
           - 'component-mapping'
           - 'build-and-deploy'
 
+permissions:
+  contents: write
+
 jobs:
   # Your existing form generation job with build and deploy added
   form-generation-and-deployment:
@@ -33,7 +36,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          token: ${{ secrets.REPO_ACCESS_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
           fetch-depth: 0
 
       - name: Setup Node.js
