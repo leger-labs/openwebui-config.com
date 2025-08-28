@@ -602,8 +602,5 @@ export const openWebUIComponentMappings: OpenWebUIComponentMappings = {
 } as const;
 
 // Default export for convenience
-export default openWebUIComponentMappings;
-
-// Re-export component mappings as the most commonly used export
-export { componentMappings as default } from './generated-component-mapping';`;
+export default openWebUIComponentMappings;`;
 }
