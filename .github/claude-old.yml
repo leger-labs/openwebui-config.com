@@ -5,32 +5,27 @@ on:
     types: [created]
   issues:
     types: [opened, assigned]
-
+    
 jobs:
   claude-assist:
     if: |
       (github.event_name == 'issue_comment' && contains(github.event.comment.body, '@claude')) ||
       (github.event_name == 'issues' && 
-        (contains(github.event.issue.body, '@claude') ||
+        (contains(github.event.issue.body, '@claude') || 
          github.event.issue.assignee.login == 'claude'))
     runs-on: ubuntu-latest
     permissions:
       contents: write
-      issues: write
       pull-requests: write
+      issues: write
       id-token: write
-
     steps:
       - uses: actions/checkout@v4
-
-      - name: Run Claude Code v1
-        uses: anthropics/claude-code-action@v1
+      - uses: anthropics/claude-code-action@beta
         with:
           anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
           github_token:      ${{ secrets.GITHUB_TOKEN }}
-          # No prompt needed for @claude mentions
-          claude_args: |
-            --allowed-tools str_replace_editor,create_file,edit_file,view_file,list_files,Bash(*:*)
-            --timeout-minutes 60
-            --model claude-4-0-sonnet-20250805
-
+          timeout_minutes: "60"
+          allowed_tools: "str_replace_editor,create_file,edit_file,view_file,list_files,Bash(*:*)"
+          custom_instructions: |
+            IMPORTANT: Always check CLAUDE.md for project context and guidelines.
