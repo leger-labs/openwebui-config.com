@@ -1,0 +1,13 @@
+name = "openwebui-config-tool"
+compatibility_date = "2024-03-18"
+
+[env.production]
+routes = [
+  { pattern = "openwebui-config.com/*", zone_name = "openwebui-config.com" },
+]
+
+[[env.production.rules]]
+type = "Transform"
+request.uri.path = "/*"
+action = "rewrite"
+action_parameters = { uri = { path = { dynamic = "/index.html" } } }
