@@ -1,0 +1,1 @@
+import{b as o}from"./react-vendor-86d91629.js";const t=o.createContext(null);t.displayName="HookFormContext";const n=()=>o.useContext(t);typeof window<"u"?o.useLayoutEffect:o.useEffect;export{n as u};
