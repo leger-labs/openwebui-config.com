@@ -14,8 +14,7 @@ routes = [
 [env.development]
 name = "openwebui-config-dev"
 
-# Serve Vite build output
+# Serve Vite build output (SPA)
 [assets]
 directory = "./dist"
-binding = "ASSETS"
 not_found_handling = "single-page-application"
