@@ -8,7 +8,7 @@
  * The component mappings define which React components should be used for each
  * configuration field, along with their props, wrappers, and alternatives.
  *
- * Generated at: 2025-08-28T17:43:35.143Z
+ * Generated at: 2025-08-28T18:03:10.712Z
  * Total fields processed: 370
  *
  * Component Assignment Statistics:
@@ -6807,7 +6807,7 @@ export const openWebUIComponentMappings: OpenWebUIComponentMappings = {
   wrappers: fieldWrappers,
   integration: integrationMetadata,
   metadata: {
-    generatedAt: '2025-08-28T17:43:35.143Z',
+    generatedAt: '2025-08-28T18:03:10.712Z',
     totalFields: 370,
     version: '1.0.0',
   },
