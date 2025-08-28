@@ -4,7 +4,7 @@ send_metrics = false
 
 # Production environment
 [env.production]
-name = "openwebui-config-prod"
+name = "openwebui-config-tool"
 routes = [
   { pattern = "openwebui-config.com/*", zone_name = "openwebui-config.com" },
   { pattern = "www.openwebui-config.com/*", zone_name = "openwebui-config.com" },
