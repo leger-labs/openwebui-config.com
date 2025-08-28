@@ -118,7 +118,6 @@
 - localStorage integration for persistence
 - Auto-save functionality
 - State recovery on page reload
-- Storage quota management
 
 ### Validation System
 - Client-side validation using Zod schemas

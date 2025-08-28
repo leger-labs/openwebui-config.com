@@ -61,24 +61,21 @@ Build **openwebui-config.com** - a single-page application that generates valid 
 - **No Authentication**: Public tool with no user accounts
 - **Cloudflare Workers**: Static file serving only
 
-### Browser Compatibility
-- **Modern Browsers**: Chrome 90+, Firefox 88+, Safari 14+, Edge 90+
 - **Required APIs**: localStorage, File API, Clipboard API
-- **No Dependencies**: Self-contained with minimal external libraries
 
 ## Development Priorities
 
-### Priority 1: Core Features (Week 1)
+### Priority 1: Core Features
 1. **Import System** - File upload and clipboard import
 2. **Export System** - Download and copy functionality  
 3. **Raw Editor Mode** - HTML textarea with ENV format support
 4. **Mode Toggle** - Bidirectional switching with data sync
 
-### Priority 2: Form Components (3 days)  
+### Priority 2: Form Components
 1. **NumberField & IntegerField** - Numeric input components
 2. **ObjectField & DateField** - Complex data type components
 
-### Priority 3: Polish (3 days)
+### Priority 3: Polish
 1. **Search & Navigation** - Find fields across categories
 2. **Bulk Operations** - Reset, clear, expand/collapse all
 3. **User Experience** - Loading states, error handling, accessibility
