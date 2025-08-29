@@ -1,4 +1,3 @@
-import Image from "next/image"
 import { cn } from "@/lib/utils"
 
 interface FrameworkIconProps {
@@ -21,7 +20,7 @@ export function FrameworkIcon({ framework, size = 20, className }: FrameworkIcon
 
   return (
     <div className={cn("relative", className)} style={{ width: size, height: size }}>
-      <Image
+      <img
         src={iconUrl || "/placeholder.svg"}
         alt={`${framework} icon`}
         width={size}

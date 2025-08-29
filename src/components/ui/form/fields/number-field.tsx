@@ -6,13 +6,13 @@ import { Label } from "@/components/ui/label"
 import { cn } from "@/lib/utils"
 import { FormDescription } from "@/components/ui/form"
 
-interface NumberFieldProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'onChange' | 'type'> {
+interface NumberFieldProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'onChange' | 'type' | 'step'> {
   label: string
   description?: string
   error?: string
   min?: number
   max?: number
-  step?: number
+  step?: number | string
   value?: number | string
   onChange?: (value: number | undefined) => void
 }
