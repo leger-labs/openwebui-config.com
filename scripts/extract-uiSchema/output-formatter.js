@@ -193,7 +193,7 @@ export interface FieldOptions {
   min?: number;
   max?: number;
   pattern?: string;
-  enumOptions?: Array<{ value: any; label: string }>;
+  enumOptions?: ReadonlyArray<{ readonly value: any; readonly label: string }>;
   conditional?: boolean;
   conditionCount?: number;
   reactTsForm: ReactTsFormHints;
@@ -212,18 +212,18 @@ export interface ConditionRule {
   field?: string;
   operator?: string;
   value?: any;
-  conditions?: Array<{
-    field: string;
-    operator: string;
-    value: any;
+  conditions?: ReadonlyArray<{
+    readonly field: string;
+    readonly operator: string;
+    readonly value: any;
   }>;
 }
 
 export interface ValidationHints {
   required: boolean;
-  constraints: Array<{
-    type: string;
-    value: any;
+  constraints: ReadonlyArray<{
+    readonly type: string;
+    readonly value: any;
   }>;
 }
 
@@ -238,11 +238,11 @@ export interface ExtensionMetadata {
 export interface ConditionalRule {
   type: 'simple' | 'complex' | 'provider';
   operator: 'and' | 'or';
-  rules: Array<{
-    field: string;
-    operator: string;
-    value: any;
-    type: string;
+  rules: ReadonlyArray<{
+    readonly field: string;
+    readonly operator: string;
+    readonly value: any;
+    readonly type: string;
   }>;
   metadata: {
     complexity: 'simple' | 'complex';
@@ -347,7 +347,7 @@ function generateFieldConfigurations(fieldConfigurations) {
   code += `// Combined field configurations
 export const fieldConfigurations: Record<string, FieldConfiguration> = {
   ${chunks.map((_, index) => `...fieldConfigurationsPart${index + 1}`).join(',\n  ')}
-} as const;`;
+};`;
   
   return code;
 }

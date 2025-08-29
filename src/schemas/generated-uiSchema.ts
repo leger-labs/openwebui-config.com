@@ -5,7 +5,7 @@
  * This file contains UI organization metadata extracted from the OpenAPI schema
  * for use with RJSF-compatible form generation and react-ts-form integration.
  *
- * Generated at: 2025-08-29T05:26:22.446Z
+ * Generated at: 2025-08-29T05:43:25.532Z
  * Source: OpenWebUI OpenAPI Configuration
  *
  * Statistics:
@@ -92,7 +92,7 @@ export interface FieldOptions {
   min?: number;
   max?: number;
   pattern?: string;
-  enumOptions?: Array<{ value: any; label: string }>;
+  enumOptions?: ReadonlyArray<{ readonly value: any; readonly label: string }>;
   conditional?: boolean;
   conditionCount?: number;
   reactTsForm: ReactTsFormHints;
@@ -111,18 +111,18 @@ export interface ConditionRule {
   field?: string;
   operator?: string;
   value?: any;
-  conditions?: Array<{
-    field: string;
-    operator: string;
-    value: any;
+  conditions?: ReadonlyArray<{
+    readonly field: string;
+    readonly operator: string;
+    readonly value: any;
   }>;
 }
 
 export interface ValidationHints {
   required: boolean;
-  constraints: Array<{
-    type: string;
-    value: any;
+  constraints: ReadonlyArray<{
+    readonly type: string;
+    readonly value: any;
   }>;
 }
 
@@ -137,11 +137,11 @@ export interface ExtensionMetadata {
 export interface ConditionalRule {
   type: 'simple' | 'complex' | 'provider';
   operator: 'and' | 'or';
-  rules: Array<{
-    field: string;
-    operator: string;
-    value: any;
-    type: string;
+  rules: ReadonlyArray<{
+    readonly field: string;
+    readonly operator: string;
+    readonly value: any;
+    readonly type: string;
   }>;
   metadata: {
     complexity: 'simple' | 'complex';
@@ -18355,7 +18355,7 @@ export const fieldConfigurations: Record<string, FieldConfiguration> = {
   ...fieldConfigurationsPart6,
   ...fieldConfigurationsPart7,
   ...fieldConfigurationsPart8,
-} as const;
+};
 
 // Conditional Rules - Defines when fields should be shown/hidden
 export const conditionalRules: Record<string, ConditionalRule> = {
@@ -26925,7 +26925,7 @@ export const reactTsFormIntegration = integrationMetadata.reactTsForm;
 export const openWebUiUiSchema: OpenWebUIUiSchema = {
   $schema: 'https://rjsf-team.github.io/react-jsonschema-form/docs/',
   $generated: {
-    generatedAt: '2025-08-29T05:26:22.446Z',
+    generatedAt: '2025-08-29T05:43:25.532Z',
     sourceSchema: 'OpenWebUI OpenAPI Configuration',
     totalFields: 370,
     totalCategories: 55,
