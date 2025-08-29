@@ -139,7 +139,7 @@ export function validateConfig(data: ConfigData): ValidationResult {
       isValid: errors.length === 0,
       errors,
       warnings,
-      data: result.success ? result.data : data
+      data: result.success ? result.data as ConfigData : data
     }
   } catch (error) {
     return {
