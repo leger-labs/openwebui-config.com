@@ -8,7 +8,7 @@
  * The component mappings define which React components should be used for each
  * configuration field, along with their props, wrappers, and alternatives.
  *
- * Generated at: 2025-08-29T05:46:17.053Z
+ * Generated at: 2025-08-29T06:15:23.441Z
  * Total fields processed: 370
  *
  * Component Assignment Statistics:
@@ -186,8 +186,8 @@ const componentMappingsPart1: Record<string, ComponentMapping> = {
     },
     wrappers: [],
     alternatives: ['textarea', 'input'],
-    decisionPath: ['type-default: integer → text-field'],
-    decisionReason: 'type-default: integer → text-field',
+    decisionPath: ['type-default: number → text-field'],
+    decisionReason: 'type-default: number → text-field',
   },
   AIOHTTP_CLIENT_TIMEOUT_MODEL_LIST: {
     component: 'text-field',
@@ -198,8 +198,8 @@ const componentMappingsPart1: Record<string, ComponentMapping> = {
     },
     wrappers: [],
     alternatives: ['textarea', 'input'],
-    decisionPath: ['type-default: integer → text-field'],
-    decisionReason: 'type-default: integer → text-field',
+    decisionPath: ['type-default: number → text-field'],
+    decisionReason: 'type-default: number → text-field',
   },
   AIOHTTP_CLIENT_TIMEOUT_OPENAI_MODEL_LIST: {
     component: 'text-field',
@@ -210,8 +210,8 @@ const componentMappingsPart1: Record<string, ComponentMapping> = {
     },
     wrappers: [],
     alternatives: ['textarea', 'input'],
-    decisionPath: ['type-default: integer → text-field'],
-    decisionReason: 'type-default: integer → text-field',
+    decisionPath: ['type-default: number → text-field'],
+    decisionReason: 'type-default: number → text-field',
   },
   API_KEY_ALLOWED_ENDPOINTS: {
     component: 'secret-field',
@@ -267,10 +267,6 @@ const componentMappingsPart1: Record<string, ComponentMapping> = {
         {
           value: 'openai',
           label: 'Openai',
-        },
-        {
-          value: 'deepgram',
-          label: 'Deepgram',
         },
       ],
       description:
@@ -444,8 +440,8 @@ const componentMappingsPart1: Record<string, ComponentMapping> = {
     },
     wrappers: [],
     alternatives: ['textarea', 'input'],
-    decisionPath: ['type-default: integer → text-field'],
-    decisionReason: 'type-default: integer → text-field',
+    decisionPath: ['type-default: number → text-field'],
+    decisionReason: 'type-default: number → text-field',
   },
   AUTOCOMPLETE_GENERATION_PROMPT_TEMPLATE: {
     component: 'markdown-text-area',
@@ -725,8 +721,8 @@ const componentMappingsPart1: Record<string, ComponentMapping> = {
     },
     wrappers: [],
     alternatives: ['textarea', 'input'],
-    decisionPath: ['type-default: integer → text-field'],
-    decisionReason: 'type-default: integer → text-field',
+    decisionPath: ['type-default: number → text-field'],
+    decisionReason: 'type-default: number → text-field',
   },
   CHUNK_SIZE: {
     component: 'text-field',
@@ -736,8 +732,8 @@ const componentMappingsPart1: Record<string, ComponentMapping> = {
     },
     wrappers: [],
     alternatives: ['textarea', 'input'],
-    decisionPath: ['type-default: integer → text-field'],
-    decisionReason: 'type-default: integer → text-field',
+    decisionPath: ['type-default: number → text-field'],
+    decisionReason: 'type-default: number → text-field',
   },
   CODE_EXECUTION_ENGINE: {
     component: 'select-field',
@@ -746,10 +742,6 @@ const componentMappingsPart1: Record<string, ComponentMapping> = {
         {
           value: 'jupyter',
           label: 'Jupyter',
-        },
-        {
-          value: 'pyodide',
-          label: 'Pyodide',
         },
       ],
       description: 'Specifies the code execution engine to use.',
@@ -827,10 +819,6 @@ const componentMappingsPart2: Record<string, ComponentMapping> = {
         {
           value: 'jupyter',
           label: 'Jupyter',
-        },
-        {
-          value: 'pyodide',
-          label: 'Pyodide',
         },
       ],
       description: 'Specifies the code interpreter engine to use.',
@@ -1008,8 +996,8 @@ const componentMappingsPart2: Record<string, ComponentMapping> = {
     },
     wrappers: [],
     alternatives: ['textarea', 'input'],
-    decisionPath: ['type-default: integer → text-field'],
-    decisionReason: 'type-default: integer → text-field',
+    decisionPath: ['type-default: number → text-field'],
+    decisionReason: 'type-default: number → text-field',
   },
   DATABASE_POOL_RECYCLE: {
     component: 'text-field',
@@ -1019,8 +1007,8 @@ const componentMappingsPart2: Record<string, ComponentMapping> = {
     },
     wrappers: [],
     alternatives: ['textarea', 'input'],
-    decisionPath: ['type-default: integer → text-field'],
-    decisionReason: 'type-default: integer → text-field',
+    decisionPath: ['type-default: number → text-field'],
+    decisionReason: 'type-default: number → text-field',
   },
   DATABASE_POOL_SIZE: {
     component: 'text-field',
@@ -1030,8 +1018,8 @@ const componentMappingsPart2: Record<string, ComponentMapping> = {
     },
     wrappers: [],
     alternatives: ['textarea', 'input'],
-    decisionPath: ['type-default: integer → text-field'],
-    decisionReason: 'type-default: integer → text-field',
+    decisionPath: ['type-default: number → text-field'],
+    decisionReason: 'type-default: number → text-field',
   },
   DATABASE_POOL_TIMEOUT: {
     component: 'text-field',
@@ -1041,8 +1029,8 @@ const componentMappingsPart2: Record<string, ComponentMapping> = {
     },
     wrappers: [],
     alternatives: ['textarea', 'input'],
-    decisionPath: ['type-default: integer → text-field'],
-    decisionReason: 'type-default: integer → text-field',
+    decisionPath: ['type-default: number → text-field'],
+    decisionReason: 'type-default: number → text-field',
   },
   DATABASE_SCHEMA: {
     component: 'text-field',
@@ -1689,10 +1677,6 @@ const componentMappingsPart3: Record<string, ComponentMapping> = {
           value: 'dev',
           label: 'Dev',
         },
-        {
-          value: 'prod',
-          label: 'Prod',
-        },
       ],
       description:
         'Environment setting.\n\nOptions:\n  - `dev` - Enables the FastAPI API documentation on `/docs`\n  - `prod` - Automatically configures several environment variables\n',
@@ -2104,8 +2088,8 @@ const componentMappingsPart4: Record<string, ComponentMapping> = {
     },
     wrappers: [],
     alternatives: ['textarea', 'input'],
-    decisionPath: ['type-default: integer → text-field'],
-    decisionReason: 'type-default: integer → text-field',
+    decisionPath: ['type-default: number → text-field'],
+    decisionReason: 'type-default: number → text-field',
   },
   JINA_API_KEY: {
     component: 'secret-field',
@@ -2128,8 +2112,8 @@ const componentMappingsPart4: Record<string, ComponentMapping> = {
     },
     wrappers: [],
     alternatives: ['textarea', 'input'],
-    decisionPath: ['type-default: integer → text-field'],
-    decisionReason: 'type-default: integer → text-field',
+    decisionPath: ['type-default: number → text-field'],
+    decisionReason: 'type-default: number → text-field',
   },
   K8S_FLAG: {
     component: 'toggle-field',
@@ -2396,8 +2380,8 @@ const componentMappingsPart4: Record<string, ComponentMapping> = {
     },
     wrappers: [],
     alternatives: ['textarea', 'input'],
-    decisionPath: ['type-default: integer → text-field'],
-    decisionReason: 'type-default: integer → text-field',
+    decisionPath: ['type-default: number → text-field'],
+    decisionReason: 'type-default: number → text-field',
   },
   MILVUS_HNSW_M: {
     component: 'text-field',
@@ -2408,8 +2392,8 @@ const componentMappingsPart4: Record<string, ComponentMapping> = {
     },
     wrappers: [],
     alternatives: ['textarea', 'input'],
-    decisionPath: ['type-default: integer → text-field'],
-    decisionReason: 'type-default: integer → text-field',
+    decisionPath: ['type-default: number → text-field'],
+    decisionReason: 'type-default: number → text-field',
   },
   MILVUS_INDEX_TYPE: {
     component: 'select-field',
@@ -2449,8 +2433,8 @@ const componentMappingsPart4: Record<string, ComponentMapping> = {
     },
     wrappers: [],
     alternatives: ['textarea', 'input'],
-    decisionPath: ['type-default: integer → text-field'],
-    decisionReason: 'type-default: integer → text-field',
+    decisionPath: ['type-default: number → text-field'],
+    decisionReason: 'type-default: number → text-field',
   },
   MILVUS_METRIC_TYPE: {
     component: 'text-field',
@@ -2937,8 +2921,8 @@ const componentMappingsPart5: Record<string, ComponentMapping> = {
     },
     wrappers: [],
     alternatives: ['textarea', 'input'],
-    decisionPath: ['type-default: integer → text-field'],
-    decisionReason: 'type-default: integer → text-field',
+    decisionPath: ['type-default: number → text-field'],
+    decisionReason: 'type-default: number → text-field',
   },
   PINECONE_ENVIRONMENT: {
     component: 'text-field',
@@ -3008,8 +2992,8 @@ const componentMappingsPart5: Record<string, ComponentMapping> = {
     },
     wrappers: [],
     alternatives: ['textarea', 'input'],
-    decisionPath: ['type-default: integer → text-field'],
-    decisionReason: 'type-default: integer → text-field',
+    decisionPath: ['type-default: number → text-field'],
+    decisionReason: 'type-default: number → text-field',
   },
   PLAYWRIGHT_WS_URL: {
     component: 'url-input',
@@ -3032,8 +3016,8 @@ const componentMappingsPart5: Record<string, ComponentMapping> = {
     },
     wrappers: [],
     alternatives: ['textarea', 'input'],
-    decisionPath: ['type-default: integer → text-field'],
-    decisionReason: 'type-default: integer → text-field',
+    decisionPath: ['type-default: number → text-field'],
+    decisionReason: 'type-default: number → text-field',
   },
   QDRANT_API_KEY: {
     component: 'secret-field',
@@ -3123,8 +3107,8 @@ const componentMappingsPart6: Record<string, ComponentMapping> = {
     },
     wrappers: [],
     alternatives: ['textarea', 'input'],
-    decisionPath: ['type-default: integer → text-field'],
-    decisionReason: 'type-default: integer → text-field',
+    decisionPath: ['type-default: number → text-field'],
+    decisionReason: 'type-default: number → text-field',
   },
   RAG_EMBEDDING_CONTENT_PREFIX: {
     component: 'text-field',
@@ -3144,10 +3128,6 @@ const componentMappingsPart6: Record<string, ComponentMapping> = {
         {
           value: 'ollama',
           label: 'Ollama',
-        },
-        {
-          value: 'openai',
-          label: 'Openai',
         },
       ],
       description:
@@ -3198,8 +3178,8 @@ const componentMappingsPart6: Record<string, ComponentMapping> = {
     },
     wrappers: [],
     alternatives: ['textarea', 'input'],
-    decisionPath: ['type-default: integer → text-field'],
-    decisionReason: 'type-default: integer → text-field',
+    decisionPath: ['type-default: number → text-field'],
+    decisionReason: 'type-default: number → text-field',
   },
   RAG_EMBEDDING_PREFIX_FIELD_NAME: {
     component: 'text-field',
@@ -3232,8 +3212,8 @@ const componentMappingsPart6: Record<string, ComponentMapping> = {
     },
     wrappers: [],
     alternatives: ['textarea', 'input'],
-    decisionPath: ['type-default: integer → text-field'],
-    decisionReason: 'type-default: integer → text-field',
+    decisionPath: ['type-default: number → text-field'],
+    decisionReason: 'type-default: number → text-field',
   },
   RAG_FILE_MAX_SIZE: {
     component: 'text-field',
@@ -3244,8 +3224,8 @@ const componentMappingsPart6: Record<string, ComponentMapping> = {
     },
     wrappers: [],
     alternatives: ['textarea', 'input'],
-    decisionPath: ['type-default: integer → text-field'],
-    decisionReason: 'type-default: integer → text-field',
+    decisionPath: ['type-default: number → text-field'],
+    decisionReason: 'type-default: number → text-field',
   },
   RAG_FULL_CONTEXT: {
     component: 'toggle-field',
@@ -3369,10 +3349,6 @@ const componentMappingsPart6: Record<string, ComponentMapping> = {
           value: 'character',
           label: 'Character',
         },
-        {
-          value: 'token',
-          label: 'Token',
-        },
       ],
       description:
         'Sets the text splitter for RAG models.\n\nOptions:\n  - `character` - `token`\n  - `token`\n',
@@ -3391,8 +3367,8 @@ const componentMappingsPart6: Record<string, ComponentMapping> = {
     },
     wrappers: [],
     alternatives: ['textarea', 'input'],
-    decisionPath: ['type-default: integer → text-field'],
-    decisionReason: 'type-default: integer → text-field',
+    decisionPath: ['type-default: number → text-field'],
+    decisionReason: 'type-default: number → text-field',
   },
   RAG_TOP_K_RERANKER: {
     component: 'text-field',
@@ -3403,8 +3379,8 @@ const componentMappingsPart6: Record<string, ComponentMapping> = {
     },
     wrappers: [],
     alternatives: ['textarea', 'input'],
-    decisionPath: ['type-default: integer → text-field'],
-    decisionReason: 'type-default: integer → text-field',
+    decisionPath: ['type-default: number → text-field'],
+    decisionReason: 'type-default: number → text-field',
   },
   REDIS_SENTINEL_HOSTS: {
     component: 'text-field',
@@ -3751,14 +3727,6 @@ const componentMappingsPart7: Record<string, ComponentMapping> = {
           value: 's3',
           label: 'S3',
         },
-        {
-          value: 'gcs',
-          label: 'Gcs',
-        },
-        {
-          value: 'azure',
-          label: 'Azure',
-        },
       ],
       description:
         'Sets the storage provider.\n\nOptions:\n  - `s3` - uses the S3 client library and related environment variables mentioned in [Amazon S3 Storage](#amazon-s3-storage)\n  - `gcs` - uses the GCS client library and related environment variables mentioned in [Google Cloud Storage](#google-cloud-storage)\n  - `azure` - uses the Azure client library and related environment variables mentioned in [Microsoft Azure Storage](#microsoft-azure-storage)\n',
@@ -3836,8 +3804,8 @@ const componentMappingsPart7: Record<string, ComponentMapping> = {
     },
     wrappers: [],
     alternatives: ['textarea', 'input'],
-    decisionPath: ['type-default: integer → text-field'],
-    decisionReason: 'type-default: integer → text-field',
+    decisionPath: ['type-default: number → text-field'],
+    decisionReason: 'type-default: number → text-field',
   },
   TIKA_SERVER_URL: {
     component: 'url-input',
@@ -4162,8 +4130,8 @@ const componentMappingsPart7: Record<string, ComponentMapping> = {
     },
     wrappers: [],
     alternatives: ['textarea', 'input'],
-    decisionPath: ['type-default: integer → text-field'],
-    decisionReason: 'type-default: integer → text-field',
+    decisionPath: ['type-default: number → text-field'],
+    decisionReason: 'type-default: number → text-field',
   },
   VECTOR_DB: {
     component: 'select-field',
@@ -4437,10 +4405,6 @@ const componentMappingsPart8: Record<string, ComponentMapping> = {
           value: 'requests',
           label: 'Requests',
         },
-        {
-          value: 'playwright',
-          label: 'Playwright',
-        },
       ],
       description:
         'Specifies the loader to use for retrieving and processing web content.\n\nOptions:\n  - `requests` - Uses the Requests module with enhanced error handling.\n  - `playwright` - Uses Playwright for more advanced web page rendering and interaction.\n',
@@ -4458,8 +4422,8 @@ const componentMappingsPart8: Record<string, ComponentMapping> = {
     },
     wrappers: [],
     alternatives: ['textarea', 'input'],
-    decisionPath: ['type-default: integer → text-field'],
-    decisionReason: 'type-default: integer → text-field',
+    decisionPath: ['type-default: number → text-field'],
+    decisionReason: 'type-default: number → text-field',
   },
   WEB_SEARCH_ENGINE: {
     component: 'select-field',
@@ -4552,8 +4516,8 @@ const componentMappingsPart8: Record<string, ComponentMapping> = {
     },
     wrappers: [],
     alternatives: ['textarea', 'input'],
-    decisionPath: ['type-default: integer → text-field'],
-    decisionReason: 'type-default: integer → text-field',
+    decisionPath: ['type-default: number → text-field'],
+    decisionReason: 'type-default: number → text-field',
   },
   WEB_SEARCH_TRUST_ENV: {
     component: 'toggle-field',
@@ -4685,24 +4649,6 @@ export const componentProps: Record<string, ComponentProps> = {
   DEFAULT_MODELS: {
     description: 'Sets a default Language Model.',
   },
-  DEFAULT_USER_ROLE: {
-    options: [
-      {
-        value: 'pending',
-        label: 'Pending',
-      },
-      {
-        value: 'user',
-        label: 'User',
-      },
-      {
-        value: 'admin',
-        label: 'Admin',
-      },
-    ],
-    description:
-      'Sets the default role assigned to new users.\n\nOptions:\n  - `pending` - New users are pending until their accounts are manually activated by an admin.\n  - `user` - New users are automatically activated with regular user permissions.\n  - `admin` - New users are automatically activated with administrator permissions.\n',
-  },
   PENDING_USER_OVERLAY_TITLE: {
     autoComplete: 'off',
     description: 'Sets a custom title for the pending user overlay.',
@@ -4750,10 +4696,6 @@ export const componentProps: Record<string, ComponentProps> = {
       {
         value: 'dev',
         label: 'Dev',
-      },
-      {
-        value: 'prod',
-        label: 'Prod',
       },
     ],
     description:
@@ -4911,10 +4853,6 @@ export const componentProps: Record<string, ComponentProps> = {
         value: 'jupyter',
         label: 'Jupyter',
       },
-      {
-        value: 'pyodide',
-        label: 'Pyodide',
-      },
     ],
     description: 'Specifies the code execution engine to use.',
   },
@@ -4949,10 +4887,6 @@ export const componentProps: Record<string, ComponentProps> = {
       {
         value: 'jupyter',
         label: 'Jupyter',
-      },
-      {
-        value: 'pyodide',
-        label: 'Pyodide',
       },
     ],
     description: 'Specifies the code interpreter engine to use.',
@@ -5045,44 +4979,8 @@ export const componentProps: Record<string, ComponentProps> = {
   ENABLE_WEB_LOADER_SSL_VERIFICATION: {
     description: 'Bypass SSL Verification for RAG on Websites.',
   },
-  WEBUI_SESSION_COOKIE_SAME_SITE: {
-    options: [
-      {
-        value: 'lax',
-        label: 'Lax',
-      },
-      {
-        value: 'strict',
-        label: 'Strict',
-      },
-      {
-        value: 'none',
-        label: 'None',
-      },
-    ],
-    description:
-      'Sets the `SameSite` attribute for session cookies.\n\nOptions:\n  - `lax` - Sets the `SameSite` attribute to lax, allowing session cookies to be sent with\nrequests initiated by third-party websites.\n  - `strict` - Sets the `SameSite` attribute to strict, blocking session cookies from being sent\nwith requests initiated by third-party websites.\n  - `none` - Sets the `SameSite` attribute to none, allowing session cookies to be sent with\nrequests initiated by third-party websites, but only over HTTPS.\n',
-  },
   WEBUI_SESSION_COOKIE_SECURE: {
     description: 'Sets the `Secure` attribute for session cookies if set to `True`.',
-  },
-  WEBUI_AUTH_COOKIE_SAME_SITE: {
-    options: [
-      {
-        value: 'lax',
-        label: 'Lax',
-      },
-      {
-        value: 'strict',
-        label: 'Strict',
-      },
-      {
-        value: 'none',
-        label: 'None',
-      },
-    ],
-    description:
-      'Sets the `SameSite` attribute for auth cookies.\n\nOptions:\n  - `lax` - Sets the `SameSite` attribute to lax, allowing auth cookies to be sent with\nrequests initiated by third-party websites.\n  - `strict` - Sets the `SameSite` attribute to strict, blocking auth cookies from being sent\nwith requests initiated by third-party websites.\n  - `none` - Sets the `SameSite` attribute to none, allowing auth cookies to be sent with\nrequests initiated by third-party websites, but only over HTTPS.\n',
   },
   WEBUI_AUTH_COOKIE_SECURE: {
     description: 'Sets the `Secure` attribute for auth cookies if set to `True`.',
@@ -5121,40 +5019,6 @@ export const componentProps: Record<string, ComponentProps> = {
   },
   RAG_RERANKING_MODEL_AUTO_UPDATE: {
     description: 'Toggles automatic update of the reranking model.',
-  },
-  VECTOR_DB: {
-    options: [
-      {
-        value: 'chroma',
-        label: 'Chroma',
-      },
-      {
-        value: 'elasticsearch',
-        label: 'Elasticsearch',
-      },
-      {
-        value: 'milvus',
-        label: 'Milvus',
-      },
-      {
-        value: 'opensearch',
-        label: 'Opensearch',
-      },
-      {
-        value: 'pgvector',
-        label: 'Pgvector',
-      },
-      {
-        value: 'pinecone',
-        label: 'Pinecone',
-      },
-      {
-        value: 'qdrant',
-        label: 'Qdrant',
-      },
-    ],
-    description:
-      'Specifies which vector database system to use. This setting determines which vector storage system will be used for managing embeddings.',
   },
   CHROMA_TENANT: {
     autoComplete: 'off',
@@ -5233,28 +5097,6 @@ export const componentProps: Record<string, ComponentProps> = {
     autoComplete: 'new-password',
     type: 'password',
     description: 'Specifies an optional connection token for Milvus.',
-  },
-  MILVUS_INDEX_TYPE: {
-    options: [
-      {
-        value: 'AUTOINDEX',
-        label: 'AUTOINDEX',
-      },
-      {
-        value: 'FLAT',
-        label: 'FLAT',
-      },
-      {
-        value: 'HNSW',
-        label: 'HNSW',
-      },
-      {
-        value: 'IVF_FLAT',
-        label: 'IVF FLAT',
-      },
-    ],
-    description:
-      'Specifies the index type to use when creating a new collection in Milvus. `AUTOINDEX` is generally recommended for Milvus standalone. `HNSW` may offer better performance but typically requires a clustered Milvus setup.',
   },
   MILVUS_METRIC_TYPE: {
     autoComplete: 'off',
@@ -5355,32 +5197,6 @@ export const componentProps: Record<string, ComponentProps> = {
     autoComplete: 'off',
     description: 'Specifies the cloud provider where the Pinecone index is hosted.',
   },
-  CONTENT_EXTRACTION_ENGINE: {
-    options: [
-      {
-        value: 'external',
-        label: 'External',
-      },
-      {
-        value: 'tika',
-        label: 'Tika',
-      },
-      {
-        value: 'docling',
-        label: 'Docling',
-      },
-      {
-        value: 'document_intelligence',
-        label: 'Document Intelligence',
-      },
-      {
-        value: 'mistral_ocr',
-        label: 'Mistral Ocr',
-      },
-    ],
-    description:
-      'Sets the content extraction engine to use for document ingestion.\n\nOptions:\n  - `external` - Use external loader\n  - `tika` - Use a local Apache Tika server\n  - `docling` - Use Docling engine\n  - `document_intelligence` - Use Document Intelligence engine\n  - `mistral_ocr` - Use Mistral OCR engine\n',
-  },
   MISTRAL_OCR_API_KEY: {
     autoComplete: 'new-password',
     type: 'password',
@@ -5421,10 +5237,6 @@ export const componentProps: Record<string, ComponentProps> = {
         value: 'ollama',
         label: 'Ollama',
       },
-      {
-        value: 'openai',
-        label: 'Openai',
-      },
     ],
     description:
       'Selects an embedding engine to use for RAG.\n\nOptions:\n  - `ollama` - Uses the Ollama API for embeddings.\n  - `openai` - Uses the OpenAI API for embeddings.\n',
@@ -5459,10 +5271,6 @@ export const componentProps: Record<string, ComponentProps> = {
       {
         value: 'character',
         label: 'Character',
-      },
-      {
-        value: 'token',
-        label: 'Token',
       },
     ],
     description:
@@ -5612,82 +5420,6 @@ export const componentProps: Record<string, ComponentProps> = {
     autoComplete: 'off',
     description: 'Number of concurrent requests to crawl web pages returned from search results.',
   },
-  WEB_SEARCH_ENGINE: {
-    options: [
-      {
-        value: 'searxng',
-        label: 'Searxng',
-      },
-      {
-        value: 'google_pse',
-        label: 'Google Pse',
-      },
-      {
-        value: 'brave',
-        label: 'Brave',
-      },
-      {
-        value: 'kagi',
-        label: 'Kagi',
-      },
-      {
-        value: 'mojeek',
-        label: 'Mojeek',
-      },
-      {
-        value: 'bocha',
-        label: 'Bocha',
-      },
-      {
-        value: 'serpstack',
-        label: 'Serpstack',
-      },
-      {
-        value: 'serper',
-        label: 'Serper',
-      },
-      {
-        value: 'serply',
-        label: 'Serply',
-      },
-      {
-        value: 'searchapi',
-        label: 'Searchapi',
-      },
-      {
-        value: 'serpapi',
-        label: 'Serpapi',
-      },
-      {
-        value: 'duckduckgo',
-        label: 'Duckduckgo',
-      },
-      {
-        value: 'tavily',
-        label: 'Tavily',
-      },
-      {
-        value: 'jina',
-        label: 'Jina',
-      },
-      {
-        value: 'bing',
-        label: 'Bing',
-      },
-      {
-        value: 'exa',
-        label: 'Exa',
-      },
-      {
-        value: 'perplexity',
-        label: 'Perplexity',
-      },
-      {
-        value: 'sougou',
-        label: 'Sougou',
-      },
-    ],
-  },
   BYPASS_WEB_SEARCH_EMBEDDING_AND_RETRIEVAL: {
     description: 'Bypasses the web search embedding and retrieval process.',
   },
@@ -5806,10 +5538,6 @@ export const componentProps: Record<string, ComponentProps> = {
         value: 'requests',
         label: 'Requests',
       },
-      {
-        value: 'playwright',
-        label: 'Playwright',
-      },
     ],
     description:
       'Specifies the loader to use for retrieving and processing web content.\n\nOptions:\n  - `requests` - Uses the Requests module with enhanced error handling.\n  - `playwright` - Uses Playwright for more advanced web page rendering and interaction.\n',
@@ -5876,10 +5604,6 @@ export const componentProps: Record<string, ComponentProps> = {
         value: 'openai',
         label: 'Openai',
       },
-      {
-        value: 'deepgram',
-        label: 'Deepgram',
-      },
     ],
     description:
       'Specifies the Speech-to-Text engine to use.\n\nOptions:\n  - `openai` - Uses OpenAI engine for Speech-to-Text.\n  - `deepgram` - Uses Deepgram engine for Speech-to-Text.\n',
@@ -5921,28 +5645,6 @@ export const componentProps: Record<string, ComponentProps> = {
     type: 'password',
     description: 'Sets the API key for Text-to-Speech.',
   },
-  AUDIO_TTS_ENGINE: {
-    options: [
-      {
-        value: 'azure',
-        label: 'Azure',
-      },
-      {
-        value: 'elevenlabs',
-        label: 'Elevenlabs',
-      },
-      {
-        value: 'openai',
-        label: 'Openai',
-      },
-      {
-        value: 'transformers',
-        label: 'Transformers',
-      },
-    ],
-    description:
-      'Specifies the Text-to-Speech engine to use.\n\nOptions:\n  - `azure` - Uses Azure engine for Text-to-Speech.\n  - `elevenlabs` - Uses ElevenLabs engine for Text-to-Speech\n  - `openai` - Uses OpenAI engine for Text-to-Speech.\n  - `transformers` - Uses SentenceTransformers for Text-to-Speech.\n',
-  },
   AUDIO_TTS_MODEL: {
     autoComplete: 'off',
     description: 'Specifies the OpenAI text-to-speech model to use.',
@@ -5972,28 +5674,6 @@ export const componentProps: Record<string, ComponentProps> = {
     autoComplete: 'new-password',
     type: 'password',
     description: 'Sets the API key to use for text-to-speech.',
-  },
-  IMAGE_GENERATION_ENGINE: {
-    options: [
-      {
-        value: 'openai',
-        label: 'Openai',
-      },
-      {
-        value: 'comfyui',
-        label: 'Comfyui',
-      },
-      {
-        value: 'automatic1111',
-        label: 'Automatic1111',
-      },
-      {
-        value: 'gemini',
-        label: 'Gemini',
-      },
-    ],
-    description:
-      'Specifies the engine to use for image generation.\n\nOptions:\n  - `openai` - Uses OpenAI DALL-E for image generation.\n  - `comfyui` - Uses ComfyUI engine for image generation.\n  - `automatic1111` - Uses AUTOMATIC1111 engine for image generation.\n  - `gemini` - Uses Gemini for image generation.\n',
   },
   ENABLE_IMAGE_GENERATION: {
     description: 'Enables or disables image generation features.',
@@ -6374,14 +6054,6 @@ export const componentProps: Record<string, ComponentProps> = {
         value: 's3',
         label: 'S3',
       },
-      {
-        value: 'gcs',
-        label: 'Gcs',
-      },
-      {
-        value: 'azure',
-        label: 'Azure',
-      },
     ],
     description:
       'Sets the storage provider.\n\nOptions:\n  - `s3` - uses the S3 client library and related environment variables mentioned in [Amazon S3 Storage](#amazon-s3-storage)\n  - `gcs` - uses the GCS client library and related environment variables mentioned in [Google Cloud Storage](#google-cloud-storage)\n  - `azure` - uses the Azure client library and related environment variables mentioned in [Microsoft Azure Storage](#microsoft-azure-storage)\n',
@@ -6526,6 +6198,262 @@ export const componentProps: Record<string, ComponentProps> = {
     autoComplete: 'off',
     description:
       'Defines custom package index behavior for pip. This can include specifying additional or alternate index URLs (e.g., `--extra-index-url`), authentication credentials, or other parameters to manage how packages are retrieved from different locations.',
+  },
+  DEFAULT_USER_ROLE: {
+    options: [
+      {
+        value: 'pending',
+        label: 'Pending',
+      },
+      {
+        value: 'user',
+        label: 'User',
+      },
+      {
+        value: 'admin',
+        label: 'Admin',
+      },
+    ],
+    description:
+      'Sets the default role assigned to new users.\n\nOptions:\n  - `pending` - New users are pending until their accounts are manually activated by an admin.\n  - `user` - New users are automatically activated with regular user permissions.\n  - `admin` - New users are automatically activated with administrator permissions.\n',
+  },
+  WEBUI_SESSION_COOKIE_SAME_SITE: {
+    options: [
+      {
+        value: 'lax',
+        label: 'Lax',
+      },
+      {
+        value: 'strict',
+        label: 'Strict',
+      },
+      {
+        value: 'none',
+        label: 'None',
+      },
+    ],
+    description:
+      'Sets the `SameSite` attribute for session cookies.\n\nOptions:\n  - `lax` - Sets the `SameSite` attribute to lax, allowing session cookies to be sent with\nrequests initiated by third-party websites.\n  - `strict` - Sets the `SameSite` attribute to strict, blocking session cookies from being sent\nwith requests initiated by third-party websites.\n  - `none` - Sets the `SameSite` attribute to none, allowing session cookies to be sent with\nrequests initiated by third-party websites, but only over HTTPS.\n',
+  },
+  WEBUI_AUTH_COOKIE_SAME_SITE: {
+    options: [
+      {
+        value: 'lax',
+        label: 'Lax',
+      },
+      {
+        value: 'strict',
+        label: 'Strict',
+      },
+      {
+        value: 'none',
+        label: 'None',
+      },
+    ],
+    description:
+      'Sets the `SameSite` attribute for auth cookies.\n\nOptions:\n  - `lax` - Sets the `SameSite` attribute to lax, allowing auth cookies to be sent with\nrequests initiated by third-party websites.\n  - `strict` - Sets the `SameSite` attribute to strict, blocking auth cookies from being sent\nwith requests initiated by third-party websites.\n  - `none` - Sets the `SameSite` attribute to none, allowing auth cookies to be sent with\nrequests initiated by third-party websites, but only over HTTPS.\n',
+  },
+  VECTOR_DB: {
+    options: [
+      {
+        value: 'chroma',
+        label: 'Chroma',
+      },
+      {
+        value: 'elasticsearch',
+        label: 'Elasticsearch',
+      },
+      {
+        value: 'milvus',
+        label: 'Milvus',
+      },
+      {
+        value: 'opensearch',
+        label: 'Opensearch',
+      },
+      {
+        value: 'pgvector',
+        label: 'Pgvector',
+      },
+      {
+        value: 'pinecone',
+        label: 'Pinecone',
+      },
+      {
+        value: 'qdrant',
+        label: 'Qdrant',
+      },
+    ],
+    description:
+      'Specifies which vector database system to use. This setting determines which vector storage system will be used for managing embeddings.',
+  },
+  MILVUS_INDEX_TYPE: {
+    options: [
+      {
+        value: 'AUTOINDEX',
+        label: 'AUTOINDEX',
+      },
+      {
+        value: 'FLAT',
+        label: 'FLAT',
+      },
+      {
+        value: 'HNSW',
+        label: 'HNSW',
+      },
+      {
+        value: 'IVF_FLAT',
+        label: 'IVF FLAT',
+      },
+    ],
+    description:
+      'Specifies the index type to use when creating a new collection in Milvus. `AUTOINDEX` is generally recommended for Milvus standalone. `HNSW` may offer better performance but typically requires a clustered Milvus setup.',
+  },
+  CONTENT_EXTRACTION_ENGINE: {
+    options: [
+      {
+        value: 'external',
+        label: 'External',
+      },
+      {
+        value: 'tika',
+        label: 'Tika',
+      },
+      {
+        value: 'docling',
+        label: 'Docling',
+      },
+      {
+        value: 'document_intelligence',
+        label: 'Document Intelligence',
+      },
+      {
+        value: 'mistral_ocr',
+        label: 'Mistral Ocr',
+      },
+    ],
+    description:
+      'Sets the content extraction engine to use for document ingestion.\n\nOptions:\n  - `external` - Use external loader\n  - `tika` - Use a local Apache Tika server\n  - `docling` - Use Docling engine\n  - `document_intelligence` - Use Document Intelligence engine\n  - `mistral_ocr` - Use Mistral OCR engine\n',
+  },
+  WEB_SEARCH_ENGINE: {
+    options: [
+      {
+        value: 'searxng',
+        label: 'Searxng',
+      },
+      {
+        value: 'google_pse',
+        label: 'Google Pse',
+      },
+      {
+        value: 'brave',
+        label: 'Brave',
+      },
+      {
+        value: 'kagi',
+        label: 'Kagi',
+      },
+      {
+        value: 'mojeek',
+        label: 'Mojeek',
+      },
+      {
+        value: 'bocha',
+        label: 'Bocha',
+      },
+      {
+        value: 'serpstack',
+        label: 'Serpstack',
+      },
+      {
+        value: 'serper',
+        label: 'Serper',
+      },
+      {
+        value: 'serply',
+        label: 'Serply',
+      },
+      {
+        value: 'searchapi',
+        label: 'Searchapi',
+      },
+      {
+        value: 'serpapi',
+        label: 'Serpapi',
+      },
+      {
+        value: 'duckduckgo',
+        label: 'Duckduckgo',
+      },
+      {
+        value: 'tavily',
+        label: 'Tavily',
+      },
+      {
+        value: 'jina',
+        label: 'Jina',
+      },
+      {
+        value: 'bing',
+        label: 'Bing',
+      },
+      {
+        value: 'exa',
+        label: 'Exa',
+      },
+      {
+        value: 'perplexity',
+        label: 'Perplexity',
+      },
+      {
+        value: 'sougou',
+        label: 'Sougou',
+      },
+    ],
+  },
+  AUDIO_TTS_ENGINE: {
+    options: [
+      {
+        value: 'azure',
+        label: 'Azure',
+      },
+      {
+        value: 'elevenlabs',
+        label: 'Elevenlabs',
+      },
+      {
+        value: 'openai',
+        label: 'Openai',
+      },
+      {
+        value: 'transformers',
+        label: 'Transformers',
+      },
+    ],
+    description:
+      'Specifies the Text-to-Speech engine to use.\n\nOptions:\n  - `azure` - Uses Azure engine for Text-to-Speech.\n  - `elevenlabs` - Uses ElevenLabs engine for Text-to-Speech\n  - `openai` - Uses OpenAI engine for Text-to-Speech.\n  - `transformers` - Uses SentenceTransformers for Text-to-Speech.\n',
+  },
+  IMAGE_GENERATION_ENGINE: {
+    options: [
+      {
+        value: 'openai',
+        label: 'Openai',
+      },
+      {
+        value: 'comfyui',
+        label: 'Comfyui',
+      },
+      {
+        value: 'automatic1111',
+        label: 'Automatic1111',
+      },
+      {
+        value: 'gemini',
+        label: 'Gemini',
+      },
+    ],
+    description:
+      'Specifies the engine to use for image generation.\n\nOptions:\n  - `openai` - Uses OpenAI DALL-E for image generation.\n  - `comfyui` - Uses ComfyUI engine for image generation.\n  - `automatic1111` - Uses AUTOMATIC1111 engine for image generation.\n  - `gemini` - Uses Gemini for image generation.\n',
   },
 } as const;
 
@@ -6807,7 +6735,7 @@ export const openWebUIComponentMappings: OpenWebUIComponentMappings = {
   wrappers: fieldWrappers,
   integration: integrationMetadata,
   metadata: {
-    generatedAt: '2025-08-29T05:46:17.053Z',
+    generatedAt: '2025-08-29T06:15:23.441Z',
     totalFields: 370,
     version: '1.0.0',
   },
