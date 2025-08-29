@@ -101,7 +101,7 @@ export function ConfigForm({ data, onDataChange, className }: ConfigFormProps) {
             label={title}
             description={description}
             value={getFieldValue(fieldName, fieldType, '')}
-            onChange={(value: string) => handleFieldChange(fieldName, value)}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleFieldChange(fieldName, e.target.value)}
           />
         )
       
