@@ -56,7 +56,7 @@ function extractDependencyRelationships(extensionsMap) {
     if (dependsOn) {
       relationships.push({
         field: fieldName,
-        type: 'conditional',
+        type: 'simple',
         source: 'depends-on',
         dependency: dependsOn,
         metadata: fieldData.standardMetadata

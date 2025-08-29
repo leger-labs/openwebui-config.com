@@ -1,6 +1,6 @@
 import { z } from 'zod'
 import type { ConfigData, ValidationError, EnvVariable } from '@/types'
-import { OpenWebUIConfig } from '@/schemas-original-output-from-gh-action/generated-schemas'
+import { OpenWebUIConfig } from '@/schemas/generated-schemas'
 
 // Validation result type
 export interface ValidationResult {
@@ -119,7 +119,7 @@ export function validateConfig(data: ConfigData): ValidationResult {
     const result = OpenWebUIConfig.safeParse(data)
     
     if (!result.success) {
-      result.error.errors.forEach(error => {
+      result.error.errors.forEach((error: any) => {
         errors.push({
           field: error.path.join('.') || 'root',
           message: error.message

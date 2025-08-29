@@ -121,11 +121,11 @@ export function convertEnvToForm(
     Object.entries(data).forEach(([key, value]) => {
       // Type conversion for known boolean fields
       if (isBooleanField(key)) {
-        processedData[key] = normalizeBooleanValue(value)
+        processedData[key] = normalizeBooleanValue(value || '')
       }
       // Type conversion for known numeric fields
       else if (isNumericField(key)) {
-        const numValue = normalizeNumericValue(value)
+        const numValue = normalizeNumericValue(value || '')
         if (numValue !== null) {
           processedData[key] = numValue.toString()
         } else {
@@ -135,7 +135,7 @@ export function convertEnvToForm(
       }
       // Handle URL fields
       else if (isUrlField(key)) {
-        const normalizedUrl = normalizeUrlValue(value)
+        const normalizedUrl = normalizeUrlValue(value || '')
         if (normalizedUrl !== value) {
           warnings.push(`${key} URL was normalized`)
         }

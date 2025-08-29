@@ -5,7 +5,7 @@
  * This file contains UI organization metadata extracted from the OpenAPI schema
  * for use with RJSF-compatible form generation and react-ts-form integration.
  *
- * Generated at: 2025-08-28T18:03:09.323Z
+ * Generated at: 2025-08-29T05:18:27.959Z
  * Source: OpenWebUI OpenAPI Configuration
  *
  * Statistics:
@@ -18360,7 +18360,7 @@ export const fieldConfigurations: Record<string, FieldConfiguration> = {
 // Conditional Rules - Defines when fields should be shown/hidden
 export const conditionalRules: Record<string, ConditionalRule> = {
   WEBHOOK_URL: {
-    type: 'conditional',
+    type: 'simple',
     operator: 'and',
     rules: [
       {
@@ -18377,7 +18377,7 @@ export const conditionalRules: Record<string, ConditionalRule> = {
     },
   },
   ADMIN_EMAIL: {
-    type: 'conditional',
+    type: 'simple',
     operator: 'and',
     rules: [
       {
@@ -18394,7 +18394,7 @@ export const conditionalRules: Record<string, ConditionalRule> = {
     },
   },
   OLLAMA_BASE_URLS: {
-    type: 'conditional',
+    type: 'simple',
     operator: 'and',
     rules: [
       {
@@ -18411,7 +18411,7 @@ export const conditionalRules: Record<string, ConditionalRule> = {
     },
   },
   OPENAI_API_BASE_URL: {
-    type: 'conditional',
+    type: 'simple',
     operator: 'and',
     rules: [
       {
@@ -18428,7 +18428,7 @@ export const conditionalRules: Record<string, ConditionalRule> = {
     },
   },
   OPENAI_API_BASE_URLS: {
-    type: 'conditional',
+    type: 'simple',
     operator: 'and',
     rules: [
       {
@@ -18445,7 +18445,7 @@ export const conditionalRules: Record<string, ConditionalRule> = {
     },
   },
   OPENAI_API_KEY: {
-    type: 'conditional',
+    type: 'simple',
     operator: 'and',
     rules: [
       {
@@ -18462,7 +18462,7 @@ export const conditionalRules: Record<string, ConditionalRule> = {
     },
   },
   OPENAI_API_KEYS: {
-    type: 'conditional',
+    type: 'simple',
     operator: 'and',
     rules: [
       {
@@ -18479,7 +18479,7 @@ export const conditionalRules: Record<string, ConditionalRule> = {
     },
   },
   TITLE_GENERATION_PROMPT_TEMPLATE: {
-    type: 'conditional',
+    type: 'simple',
     operator: 'and',
     rules: [
       {
@@ -18496,7 +18496,7 @@ export const conditionalRules: Record<string, ConditionalRule> = {
     },
   },
   CODE_EXECUTION_ENGINE: {
-    type: 'conditional',
+    type: 'simple',
     operator: 'and',
     rules: [
       {
@@ -18628,7 +18628,7 @@ export const conditionalRules: Record<string, ConditionalRule> = {
     },
   },
   CODE_INTERPRETER_ENGINE: {
-    type: 'conditional',
+    type: 'simple',
     operator: 'and',
     rules: [
       {
@@ -18645,7 +18645,7 @@ export const conditionalRules: Record<string, ConditionalRule> = {
     },
   },
   CODE_INTERPRETER_PROMPT_TEMPLATE: {
-    type: 'conditional',
+    type: 'simple',
     operator: 'and',
     rules: [
       {
@@ -18777,7 +18777,7 @@ export const conditionalRules: Record<string, ConditionalRule> = {
     },
   },
   AUTOCOMPLETE_GENERATION_INPUT_MAX_LENGTH: {
-    type: 'conditional',
+    type: 'simple',
     operator: 'and',
     rules: [
       {
@@ -18794,7 +18794,7 @@ export const conditionalRules: Record<string, ConditionalRule> = {
     },
   },
   AUTOCOMPLETE_GENERATION_PROMPT_TEMPLATE: {
-    type: 'conditional',
+    type: 'simple',
     operator: 'and',
     rules: [
       {
@@ -18811,7 +18811,7 @@ export const conditionalRules: Record<string, ConditionalRule> = {
     },
   },
   TAGS_GENERATION_PROMPT_TEMPLATE: {
-    type: 'conditional',
+    type: 'simple',
     operator: 'and',
     rules: [
       {
@@ -18828,7 +18828,7 @@ export const conditionalRules: Record<string, ConditionalRule> = {
     },
   },
   API_KEY_ALLOWED_ENDPOINTS: {
-    type: 'conditional',
+    type: 'simple',
     operator: 'and',
     rules: [
       {
@@ -18845,7 +18845,7 @@ export const conditionalRules: Record<string, ConditionalRule> = {
     },
   },
   WEBUI_SESSION_COOKIE_SAME_SITE: {
-    type: 'conditional',
+    type: 'simple',
     operator: 'and',
     rules: [
       {
@@ -18862,7 +18862,7 @@ export const conditionalRules: Record<string, ConditionalRule> = {
     },
   },
   WEBUI_SESSION_COOKIE_SECURE: {
-    type: 'conditional',
+    type: 'simple',
     operator: 'and',
     rules: [
       {
@@ -18879,7 +18879,7 @@ export const conditionalRules: Record<string, ConditionalRule> = {
     },
   },
   WEBUI_AUTH_COOKIE_SAME_SITE: {
-    type: 'conditional',
+    type: 'simple',
     operator: 'and',
     rules: [
       {
@@ -18896,7 +18896,7 @@ export const conditionalRules: Record<string, ConditionalRule> = {
     },
   },
   WEBUI_AUTH_COOKIE_SECURE: {
-    type: 'conditional',
+    type: 'simple',
     operator: 'and',
     rules: [
       {
@@ -18913,7 +18913,7 @@ export const conditionalRules: Record<string, ConditionalRule> = {
     },
   },
   WEBUI_SECRET_KEY: {
-    type: 'conditional',
+    type: 'simple',
     operator: 'and',
     rules: [
       {
@@ -18930,7 +18930,7 @@ export const conditionalRules: Record<string, ConditionalRule> = {
     },
   },
   RAG_EMBEDDING_MODEL_TRUST_REMOTE_CODE: {
-    type: 'conditional',
+    type: 'simple',
     operator: 'and',
     rules: [
       {
@@ -18947,7 +18947,7 @@ export const conditionalRules: Record<string, ConditionalRule> = {
     },
   },
   RAG_RERANKING_MODEL_TRUST_REMOTE_CODE: {
-    type: 'conditional',
+    type: 'simple',
     operator: 'and',
     rules: [
       {
@@ -20132,7 +20132,7 @@ export const conditionalRules: Record<string, ConditionalRule> = {
     },
   },
   RAG_TOP_K: {
-    type: 'conditional',
+    type: 'simple',
     operator: 'and',
     rules: [
       {
@@ -20149,7 +20149,7 @@ export const conditionalRules: Record<string, ConditionalRule> = {
     },
   },
   RAG_TOP_K_RERANKER: {
-    type: 'conditional',
+    type: 'simple',
     operator: 'and',
     rules: [
       {
@@ -20166,7 +20166,7 @@ export const conditionalRules: Record<string, ConditionalRule> = {
     },
   },
   RAG_RELEVANCE_THRESHOLD: {
-    type: 'conditional',
+    type: 'simple',
     operator: 'and',
     rules: [
       {
@@ -20287,7 +20287,7 @@ export const conditionalRules: Record<string, ConditionalRule> = {
     },
   },
   RAG_RERANKING_MODEL: {
-    type: 'conditional',
+    type: 'simple',
     operator: 'and',
     rules: [
       {
@@ -20419,7 +20419,7 @@ export const conditionalRules: Record<string, ConditionalRule> = {
     },
   },
   QUERY_GENERATION_PROMPT_TEMPLATE: {
-    type: 'conditional',
+    type: 'simple',
     operator: 'and',
     rules: [
       {
@@ -20436,7 +20436,7 @@ export const conditionalRules: Record<string, ConditionalRule> = {
     },
   },
   GOOGLE_DRIVE_CLIENT_ID: {
-    type: 'conditional',
+    type: 'simple',
     operator: 'and',
     rules: [
       {
@@ -20453,7 +20453,7 @@ export const conditionalRules: Record<string, ConditionalRule> = {
     },
   },
   GOOGLE_DRIVE_API_KEY: {
-    type: 'conditional',
+    type: 'simple',
     operator: 'and',
     rules: [
       {
@@ -20470,7 +20470,7 @@ export const conditionalRules: Record<string, ConditionalRule> = {
     },
   },
   ONEDRIVE_CLIENT_ID: {
-    type: 'conditional',
+    type: 'simple',
     operator: 'and',
     rules: [
       {
@@ -20487,7 +20487,7 @@ export const conditionalRules: Record<string, ConditionalRule> = {
     },
   },
   ENABLE_SEARCH_QUERY_GENERATION: {
-    type: 'conditional',
+    type: 'simple',
     operator: 'and',
     rules: [
       {
@@ -20504,7 +20504,7 @@ export const conditionalRules: Record<string, ConditionalRule> = {
     },
   },
   WEB_SEARCH_TRUST_ENV: {
-    type: 'conditional',
+    type: 'simple',
     operator: 'and',
     rules: [
       {
@@ -20521,7 +20521,7 @@ export const conditionalRules: Record<string, ConditionalRule> = {
     },
   },
   WEB_SEARCH_RESULT_COUNT: {
-    type: 'conditional',
+    type: 'simple',
     operator: 'and',
     rules: [
       {
@@ -20538,7 +20538,7 @@ export const conditionalRules: Record<string, ConditionalRule> = {
     },
   },
   WEB_SEARCH_CONCURRENT_REQUESTS: {
-    type: 'conditional',
+    type: 'simple',
     operator: 'and',
     rules: [
       {
@@ -20555,7 +20555,7 @@ export const conditionalRules: Record<string, ConditionalRule> = {
     },
   },
   WEB_SEARCH_ENGINE: {
-    type: 'conditional',
+    type: 'simple',
     operator: 'and',
     rules: [
       {
@@ -20572,7 +20572,7 @@ export const conditionalRules: Record<string, ConditionalRule> = {
     },
   },
   BYPASS_WEB_SEARCH_EMBEDDING_AND_RETRIEVAL: {
-    type: 'conditional',
+    type: 'simple',
     operator: 'and',
     rules: [
       {
@@ -21659,7 +21659,7 @@ export const conditionalRules: Record<string, ConditionalRule> = {
     },
   },
   IMAGE_GENERATION_ENGINE: {
-    type: 'conditional',
+    type: 'simple',
     operator: 'and',
     rules: [
       {
@@ -21676,7 +21676,7 @@ export const conditionalRules: Record<string, ConditionalRule> = {
     },
   },
   ENABLE_IMAGE_PROMPT_GENERATION: {
-    type: 'conditional',
+    type: 'simple',
     operator: 'and',
     rules: [
       {
@@ -21693,7 +21693,7 @@ export const conditionalRules: Record<string, ConditionalRule> = {
     },
   },
   IMAGE_PROMPT_GENERATION_PROMPT_TEMPLATE: {
-    type: 'conditional',
+    type: 'simple',
     operator: 'and',
     rules: [
       {
@@ -21710,7 +21710,7 @@ export const conditionalRules: Record<string, ConditionalRule> = {
     },
   },
   IMAGE_SIZE: {
-    type: 'conditional',
+    type: 'simple',
     operator: 'and',
     rules: [
       {
@@ -21756,7 +21756,7 @@ export const conditionalRules: Record<string, ConditionalRule> = {
     },
   },
   IMAGE_GENERATION_MODEL: {
-    type: 'conditional',
+    type: 'simple',
     operator: 'and',
     rules: [
       {
@@ -22095,7 +22095,7 @@ export const conditionalRules: Record<string, ConditionalRule> = {
     },
   },
   OAUTH_MERGE_ACCOUNTS_BY_EMAIL: {
-    type: 'conditional',
+    type: 'simple',
     operator: 'and',
     rules: [
       {
@@ -22112,7 +22112,7 @@ export const conditionalRules: Record<string, ConditionalRule> = {
     },
   },
   OAUTH_UPDATE_PICTURE_ON_LOGIN: {
-    type: 'conditional',
+    type: 'simple',
     operator: 'and',
     rules: [
       {
@@ -22129,7 +22129,7 @@ export const conditionalRules: Record<string, ConditionalRule> = {
     },
   },
   WEBUI_AUTH_TRUSTED_EMAIL_HEADER: {
-    type: 'conditional',
+    type: 'simple',
     operator: 'and',
     rules: [
       {
@@ -22146,7 +22146,7 @@ export const conditionalRules: Record<string, ConditionalRule> = {
     },
   },
   WEBUI_AUTH_TRUSTED_NAME_HEADER: {
-    type: 'conditional',
+    type: 'simple',
     operator: 'and',
     rules: [
       {
@@ -22163,7 +22163,7 @@ export const conditionalRules: Record<string, ConditionalRule> = {
     },
   },
   GOOGLE_CLIENT_ID: {
-    type: 'conditional',
+    type: 'simple',
     operator: 'and',
     rules: [
       {
@@ -22180,7 +22180,7 @@ export const conditionalRules: Record<string, ConditionalRule> = {
     },
   },
   GOOGLE_CLIENT_SECRET: {
-    type: 'conditional',
+    type: 'simple',
     operator: 'and',
     rules: [
       {
@@ -22197,7 +22197,7 @@ export const conditionalRules: Record<string, ConditionalRule> = {
     },
   },
   GOOGLE_OAUTH_SCOPE: {
-    type: 'conditional',
+    type: 'simple',
     operator: 'and',
     rules: [
       {
@@ -22214,7 +22214,7 @@ export const conditionalRules: Record<string, ConditionalRule> = {
     },
   },
   GOOGLE_REDIRECT_URI: {
-    type: 'conditional',
+    type: 'simple',
     operator: 'and',
     rules: [
       {
@@ -22231,7 +22231,7 @@ export const conditionalRules: Record<string, ConditionalRule> = {
     },
   },
   MICROSOFT_CLIENT_ID: {
-    type: 'conditional',
+    type: 'simple',
     operator: 'and',
     rules: [
       {
@@ -22248,7 +22248,7 @@ export const conditionalRules: Record<string, ConditionalRule> = {
     },
   },
   MICROSOFT_CLIENT_SECRET: {
-    type: 'conditional',
+    type: 'simple',
     operator: 'and',
     rules: [
       {
@@ -22265,7 +22265,7 @@ export const conditionalRules: Record<string, ConditionalRule> = {
     },
   },
   MICROSOFT_CLIENT_TENANT_ID: {
-    type: 'conditional',
+    type: 'simple',
     operator: 'and',
     rules: [
       {
@@ -22282,7 +22282,7 @@ export const conditionalRules: Record<string, ConditionalRule> = {
     },
   },
   MICROSOFT_OAUTH_SCOPE: {
-    type: 'conditional',
+    type: 'simple',
     operator: 'and',
     rules: [
       {
@@ -22299,7 +22299,7 @@ export const conditionalRules: Record<string, ConditionalRule> = {
     },
   },
   MICROSOFT_REDIRECT_URI: {
-    type: 'conditional',
+    type: 'simple',
     operator: 'and',
     rules: [
       {
@@ -22316,7 +22316,7 @@ export const conditionalRules: Record<string, ConditionalRule> = {
     },
   },
   GITHUB_CLIENT_ID: {
-    type: 'conditional',
+    type: 'simple',
     operator: 'and',
     rules: [
       {
@@ -22333,7 +22333,7 @@ export const conditionalRules: Record<string, ConditionalRule> = {
     },
   },
   GITHUB_CLIENT_SECRET: {
-    type: 'conditional',
+    type: 'simple',
     operator: 'and',
     rules: [
       {
@@ -22350,7 +22350,7 @@ export const conditionalRules: Record<string, ConditionalRule> = {
     },
   },
   GITHUB_CLIENT_SCOPE: {
-    type: 'conditional',
+    type: 'simple',
     operator: 'and',
     rules: [
       {
@@ -22367,7 +22367,7 @@ export const conditionalRules: Record<string, ConditionalRule> = {
     },
   },
   GITHUB_CLIENT_REDIRECT_URI: {
-    type: 'conditional',
+    type: 'simple',
     operator: 'and',
     rules: [
       {
@@ -22384,7 +22384,7 @@ export const conditionalRules: Record<string, ConditionalRule> = {
     },
   },
   OAUTH_CLIENT_ID: {
-    type: 'conditional',
+    type: 'simple',
     operator: 'and',
     rules: [
       {
@@ -22401,7 +22401,7 @@ export const conditionalRules: Record<string, ConditionalRule> = {
     },
   },
   OAUTH_CLIENT_SECRET: {
-    type: 'conditional',
+    type: 'simple',
     operator: 'and',
     rules: [
       {
@@ -22418,7 +22418,7 @@ export const conditionalRules: Record<string, ConditionalRule> = {
     },
   },
   OPENID_PROVIDER_URL: {
-    type: 'conditional',
+    type: 'simple',
     operator: 'and',
     rules: [
       {
@@ -22435,7 +22435,7 @@ export const conditionalRules: Record<string, ConditionalRule> = {
     },
   },
   OPENID_REDIRECT_URI: {
-    type: 'conditional',
+    type: 'simple',
     operator: 'and',
     rules: [
       {
@@ -22452,7 +22452,7 @@ export const conditionalRules: Record<string, ConditionalRule> = {
     },
   },
   OAUTH_SCOPES: {
-    type: 'conditional',
+    type: 'simple',
     operator: 'and',
     rules: [
       {
@@ -22469,7 +22469,7 @@ export const conditionalRules: Record<string, ConditionalRule> = {
     },
   },
   OAUTH_CODE_CHALLENGE_METHOD: {
-    type: 'conditional',
+    type: 'simple',
     operator: 'and',
     rules: [
       {
@@ -22486,7 +22486,7 @@ export const conditionalRules: Record<string, ConditionalRule> = {
     },
   },
   OAUTH_PROVIDER_NAME: {
-    type: 'conditional',
+    type: 'simple',
     operator: 'and',
     rules: [
       {
@@ -22503,7 +22503,7 @@ export const conditionalRules: Record<string, ConditionalRule> = {
     },
   },
   OAUTH_USERNAME_CLAIM: {
-    type: 'conditional',
+    type: 'simple',
     operator: 'and',
     rules: [
       {
@@ -22520,7 +22520,7 @@ export const conditionalRules: Record<string, ConditionalRule> = {
     },
   },
   OAUTH_EMAIL_CLAIM: {
-    type: 'conditional',
+    type: 'simple',
     operator: 'and',
     rules: [
       {
@@ -22537,7 +22537,7 @@ export const conditionalRules: Record<string, ConditionalRule> = {
     },
   },
   OAUTH_PICTURE_CLAIM: {
-    type: 'conditional',
+    type: 'simple',
     operator: 'and',
     rules: [
       {
@@ -22554,7 +22554,7 @@ export const conditionalRules: Record<string, ConditionalRule> = {
     },
   },
   OAUTH_GROUP_CLAIM: {
-    type: 'conditional',
+    type: 'simple',
     operator: 'and',
     rules: [
       {
@@ -22571,7 +22571,7 @@ export const conditionalRules: Record<string, ConditionalRule> = {
     },
   },
   OAUTH_ROLES_CLAIM: {
-    type: 'conditional',
+    type: 'simple',
     operator: 'and',
     rules: [
       {
@@ -22588,7 +22588,7 @@ export const conditionalRules: Record<string, ConditionalRule> = {
     },
   },
   OAUTH_ALLOWED_ROLES: {
-    type: 'conditional',
+    type: 'simple',
     operator: 'and',
     rules: [
       {
@@ -22605,7 +22605,7 @@ export const conditionalRules: Record<string, ConditionalRule> = {
     },
   },
   OAUTH_ADMIN_ROLES: {
-    type: 'conditional',
+    type: 'simple',
     operator: 'and',
     rules: [
       {
@@ -22622,7 +22622,7 @@ export const conditionalRules: Record<string, ConditionalRule> = {
     },
   },
   OAUTH_ALLOWED_DOMAINS: {
-    type: 'conditional',
+    type: 'simple',
     operator: 'and',
     rules: [
       {
@@ -22639,7 +22639,7 @@ export const conditionalRules: Record<string, ConditionalRule> = {
     },
   },
   LDAP_SERVER_LABEL: {
-    type: 'conditional',
+    type: 'simple',
     operator: 'and',
     rules: [
       {
@@ -22656,7 +22656,7 @@ export const conditionalRules: Record<string, ConditionalRule> = {
     },
   },
   LDAP_SERVER_HOST: {
-    type: 'conditional',
+    type: 'simple',
     operator: 'and',
     rules: [
       {
@@ -22673,7 +22673,7 @@ export const conditionalRules: Record<string, ConditionalRule> = {
     },
   },
   LDAP_SERVER_PORT: {
-    type: 'conditional',
+    type: 'simple',
     operator: 'and',
     rules: [
       {
@@ -22690,7 +22690,7 @@ export const conditionalRules: Record<string, ConditionalRule> = {
     },
   },
   LDAP_ATTRIBUTE_FOR_MAIL: {
-    type: 'conditional',
+    type: 'simple',
     operator: 'and',
     rules: [
       {
@@ -22707,7 +22707,7 @@ export const conditionalRules: Record<string, ConditionalRule> = {
     },
   },
   LDAP_ATTRIBUTE_FOR_USERNAME: {
-    type: 'conditional',
+    type: 'simple',
     operator: 'and',
     rules: [
       {
@@ -22724,7 +22724,7 @@ export const conditionalRules: Record<string, ConditionalRule> = {
     },
   },
   LDAP_APP_DN: {
-    type: 'conditional',
+    type: 'simple',
     operator: 'and',
     rules: [
       {
@@ -22741,7 +22741,7 @@ export const conditionalRules: Record<string, ConditionalRule> = {
     },
   },
   LDAP_APP_PASSWORD: {
-    type: 'conditional',
+    type: 'simple',
     operator: 'and',
     rules: [
       {
@@ -22758,7 +22758,7 @@ export const conditionalRules: Record<string, ConditionalRule> = {
     },
   },
   LDAP_SEARCH_BASE: {
-    type: 'conditional',
+    type: 'simple',
     operator: 'and',
     rules: [
       {
@@ -22775,7 +22775,7 @@ export const conditionalRules: Record<string, ConditionalRule> = {
     },
   },
   LDAP_SEARCH_FILTER: {
-    type: 'conditional',
+    type: 'simple',
     operator: 'and',
     rules: [
       {
@@ -22792,7 +22792,7 @@ export const conditionalRules: Record<string, ConditionalRule> = {
     },
   },
   LDAP_SEARCH_FILTERS: {
-    type: 'conditional',
+    type: 'simple',
     operator: 'and',
     rules: [
       {
@@ -22809,7 +22809,7 @@ export const conditionalRules: Record<string, ConditionalRule> = {
     },
   },
   LDAP_USE_TLS: {
-    type: 'conditional',
+    type: 'simple',
     operator: 'and',
     rules: [
       {
@@ -22826,7 +22826,7 @@ export const conditionalRules: Record<string, ConditionalRule> = {
     },
   },
   LDAP_CA_CERT_FILE: {
-    type: 'conditional',
+    type: 'simple',
     operator: 'and',
     rules: [
       {
@@ -22843,7 +22843,7 @@ export const conditionalRules: Record<string, ConditionalRule> = {
     },
   },
   LDAP_VALIDATE_CERT: {
-    type: 'conditional',
+    type: 'simple',
     operator: 'and',
     rules: [
       {
@@ -22860,7 +22860,7 @@ export const conditionalRules: Record<string, ConditionalRule> = {
     },
   },
   LDAP_CIPHERS: {
-    type: 'conditional',
+    type: 'simple',
     operator: 'and',
     rules: [
       {
@@ -22877,7 +22877,7 @@ export const conditionalRules: Record<string, ConditionalRule> = {
     },
   },
   USER_PERMISSIONS_CHAT_TEMPORARY_ENFORCED: {
-    type: 'conditional',
+    type: 'simple',
     operator: 'and',
     rules: [
       {
@@ -22894,7 +22894,7 @@ export const conditionalRules: Record<string, ConditionalRule> = {
     },
   },
   USER_PERMISSIONS_WORKSPACE_MODELS_ALLOW_PUBLIC_SHARING: {
-    type: 'conditional',
+    type: 'simple',
     operator: 'and',
     rules: [
       {
@@ -22911,7 +22911,7 @@ export const conditionalRules: Record<string, ConditionalRule> = {
     },
   },
   USER_PERMISSIONS_WORKSPACE_KNOWLEDGE_ALLOW_PUBLIC_SHARING: {
-    type: 'conditional',
+    type: 'simple',
     operator: 'and',
     rules: [
       {
@@ -22928,7 +22928,7 @@ export const conditionalRules: Record<string, ConditionalRule> = {
     },
   },
   USER_PERMISSIONS_WORKSPACE_PROMPTS_ALLOW_PUBLIC_SHARING: {
-    type: 'conditional',
+    type: 'simple',
     operator: 'and',
     rules: [
       {
@@ -22945,7 +22945,7 @@ export const conditionalRules: Record<string, ConditionalRule> = {
     },
   },
   USER_PERMISSIONS_WORKSPACE_TOOLS_ALLOW_PUBLIC_SHARING: {
-    type: 'conditional',
+    type: 'simple',
     operator: 'and',
     rules: [
       {
@@ -23284,7 +23284,7 @@ export const conditionalRules: Record<string, ConditionalRule> = {
     },
   },
   WEBSOCKET_MANAGER: {
-    type: 'conditional',
+    type: 'simple',
     operator: 'and',
     rules: [
       {
@@ -23301,7 +23301,7 @@ export const conditionalRules: Record<string, ConditionalRule> = {
     },
   },
   WEBSOCKET_REDIS_URL: {
-    type: 'conditional',
+    type: 'simple',
     operator: 'and',
     rules: [
       {
@@ -23318,7 +23318,7 @@ export const conditionalRules: Record<string, ConditionalRule> = {
     },
   },
   WEBSOCKET_SENTINEL_HOSTS: {
-    type: 'conditional',
+    type: 'simple',
     operator: 'and',
     rules: [
       {
@@ -23335,7 +23335,7 @@ export const conditionalRules: Record<string, ConditionalRule> = {
     },
   },
   WEBSOCKET_SENTINEL_PORT: {
-    type: 'conditional',
+    type: 'simple',
     operator: 'and',
     rules: [
       {
@@ -26925,7 +26925,7 @@ export const reactTsFormIntegration = integrationMetadata.reactTsForm;
 export const openWebUiUiSchema: OpenWebUIUiSchema = {
   $schema: 'https://rjsf-team.github.io/react-jsonschema-form/docs/',
   $generated: {
-    generatedAt: '2025-08-28T18:03:09.323Z',
+    generatedAt: '2025-08-29T05:18:27.959Z',
     sourceSchema: 'OpenWebUI OpenAPI Configuration',
     totalFields: 370,
     totalCategories: 55,
