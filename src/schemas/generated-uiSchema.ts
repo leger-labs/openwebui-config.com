@@ -5,7 +5,7 @@
  * This file contains UI organization metadata extracted from the OpenAPI schema
  * for use with RJSF-compatible form generation and react-ts-form integration.
  *
- * Generated at: 2025-08-29T05:18:27.959Z
+ * Generated at: 2025-08-29T05:26:22.446Z
  * Source: OpenWebUI OpenAPI Configuration
  *
  * Statistics:
@@ -26925,7 +26925,7 @@ export const reactTsFormIntegration = integrationMetadata.reactTsForm;
 export const openWebUiUiSchema: OpenWebUIUiSchema = {
   $schema: 'https://rjsf-team.github.io/react-jsonschema-form/docs/',
   $generated: {
-    generatedAt: '2025-08-29T05:18:27.959Z',
+    generatedAt: '2025-08-29T05:26:22.446Z',
     sourceSchema: 'OpenWebUI OpenAPI Configuration',
     totalFields: 370,
     totalCategories: 55,

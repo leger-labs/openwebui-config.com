@@ -5,6 +5,7 @@
 import { z } from 'zod';
 
 // Individual schemas for each configuration property
+export type OpenWebUIConfig = z.infer<typeof OpenWebUIConfig>;
 export const OpenWebUIConfig = z.object({
   WEBUI_URL: z.string().optional(),
   ENABLE_SIGNUP: z.boolean().optional(),
