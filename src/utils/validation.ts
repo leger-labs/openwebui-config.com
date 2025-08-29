@@ -1,6 +1,6 @@
 import { z } from 'zod'
 import type { ConfigData, ValidationError, EnvVariable } from '@/types'
-import { OpenWebUIConfig } from '@/schemas/generated-schemas'
+import { OpenWebUIConfigSchema } from '@/schemas/generated-schemas'
 
 // Validation result type
 export interface ValidationResult {
@@ -48,7 +48,7 @@ export function validateField(
 // Get field schema from OpenWebUIConfig
 function getFieldSchema(fieldName: string): z.ZodSchema | null {
   try {
-    const shape = OpenWebUIConfig.shape as Record<string, z.ZodSchema>
+    const shape = OpenWebUIConfigSchema.shape as Record<string, z.ZodSchema>
     return shape[fieldName] || null
   } catch {
     return null
@@ -116,7 +116,7 @@ export function validateConfig(data: ConfigData): ValidationResult {
 
   try {
     // Validate against full OpenWebUI schema
-    const result = OpenWebUIConfig.safeParse(data)
+    const result = OpenWebUIConfigSchema.safeParse(data)
     
     if (!result.success) {
       result.error.errors.forEach((error: any) => {
