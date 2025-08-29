@@ -40,6 +40,5 @@ export function showValidationErrors({ title = "Validation Error", errors, onDis
       </ToastAction>
     ) : undefined,
     duration: 10000, // 10 seconds
-    icon: <AlertCircle className="h-5 w-5" />,
   })
 }

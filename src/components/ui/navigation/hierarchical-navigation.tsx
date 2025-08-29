@@ -102,7 +102,7 @@ export function HierarchicalNavigation({ items, activeItemId, onItemClick, class
           {renderStatusIcon(item.status)}
         </div>
 
-        {hasChildren && isExpanded && (
+        {hasChildren && isExpanded && item.children && (
           <ul className="mt-1">{item.children.map((child) => renderItem(child, depth + 1))}</ul>
         )}
       </li>

@@ -7,7 +7,7 @@ import { Switch } from "@/components/ui/switch"
 import { FormDescription } from "@/components/ui/form"
 import { cn } from "@/lib/utils"
 
-interface OverrideableFieldProps extends React.InputHTMLAttributes<HTMLInputElement> {
+interface OverrideableFieldProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'onChange' | 'value' | 'defaultValue'> {
   label: string
   description?: string
   defaultValue: string
