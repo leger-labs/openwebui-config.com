@@ -4,9 +4,8 @@
  */
 import { z } from 'zod';
 
-// Individual schemas for each configuration property
-export type OpenWebUIConfig = z.infer<typeof OpenWebUIConfig>;
-export const OpenWebUIConfig = z.object({
+// Single combined schema for all OpenWebUI configuration properties
+export const OpenWebUIConfigSchema = z.object({
   WEBUI_URL: z.string().optional(),
   ENABLE_SIGNUP: z.boolean().optional(),
   ENABLE_LOGIN_FORM: z.boolean().optional(),
@@ -439,9 +438,6 @@ export const OpenWebUIConfig = z.object({
   PIP_OPTIONS: z.string().optional(),
   PIP_PACKAGE_INDEX_OPTIONS: z.string().optional(),
 });
-
-// Combined schema for all configuration properties
-export const OpenWebUIConfigSchema = z.object({});
 
 // TypeScript type for complete configuration
 export type OpenWebUIConfig = z.infer<typeof OpenWebUIConfigSchema>;
