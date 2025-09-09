@@ -1,5 +1,5 @@
 import React from 'react'
-import { FieldProps } from '@rjsf/core'
+import { FieldProps } from '@rjsf/utils'
 import { PlanRestrictedFeature } from '@/components/ui/form/wrappers/plan-restricted-feature'
 
 export default function PlanRestrictedField(props: FieldProps) {
@@ -7,14 +7,20 @@ export default function PlanRestrictedField(props: FieldProps) {
   
   // If no plan restriction, render the default field
   if (!planRequired) {
-    const DefaultFieldTemplate = props.registry.templates.FieldTemplate
-    return <DefaultFieldTemplate {...props} />
+    const DefaultField = props.registry.fields.StringField || props.registry.fields.default
+    return <DefaultField {...props} />
   }
   
   // Wrap the field with plan restriction
   return (
-    <PlanRestrictedFeature planRequired={planRequired as string}>
-      {React.createElement(props.registry.templates.FieldTemplate, props)}
+    <PlanRestrictedFeature 
+      title={props.schema.title || props.name}
+      description={props.schema.description || ''}
+      requiredPlan={planRequired as string}
+      callToAction="Upgrade to access"
+      onUpgradeClick={() => console.log('Upgrade clicked')}
+    >
+      {React.createElement(props.registry.fields.StringField || props.registry.fields.default, props)}
     </PlanRestrictedFeature>
   )
 }

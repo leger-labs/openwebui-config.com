@@ -12,7 +12,7 @@ export class CrossFieldValidator {
     const errors: ValidationResult[] = []
     
     // OpenAI API dependencies
-    if (formData.ENABLE_OPENAI_API === 'true' || formData.ENABLE_OPENAI_API === true) {
+    if (formData.ENABLE_OPENAI_API === 'true' || formData.ENABLE_OPENAI_API === '1') {
       if (!formData.OPENAI_API_KEY && !formData.OPENAI_API_KEYS) {
         errors.push({
           field: 'OPENAI_API_KEY',
@@ -33,7 +33,7 @@ export class CrossFieldValidator {
     }
     
     // Anthropic API dependencies
-    if (formData.ENABLE_ANTHROPIC_API === 'true' || formData.ENABLE_ANTHROPIC_API === true) {
+    if (formData.ENABLE_ANTHROPIC_API === 'true' || formData.ENABLE_ANTHROPIC_API === '1') {
       if (!formData.ANTHROPIC_API_KEY) {
         errors.push({
           field: 'ANTHROPIC_API_KEY',
@@ -50,13 +50,13 @@ export class CrossFieldValidator {
     }
     
     // OAuth dependencies
-    if (formData.ENABLE_OAUTH_SIGNUP === 'true' || formData.ENABLE_OAUTH_SIGNUP === true) {
+    if (formData.ENABLE_OAUTH_SIGNUP === 'true' || formData.ENABLE_OAUTH_SIGNUP === '1') {
       const oauthErrors = this.validateOAuthConfig(formData)
       errors.push(...oauthErrors)
     }
     
     // LDAP dependencies
-    if (formData.ENABLE_LDAP === 'true' || formData.ENABLE_LDAP === true) {
+    if (formData.ENABLE_LDAP === 'true' || formData.ENABLE_LDAP === '1') {
       const ldapErrors = this.validateLDAPConfig(formData)
       errors.push(...ldapErrors)
     }
@@ -68,7 +68,7 @@ export class CrossFieldValidator {
     }
     
     // WebSocket dependencies
-    if (formData.ENABLE_WEBSOCKET_SUPPORT === 'true' || formData.ENABLE_WEBSOCKET_SUPPORT === true) {
+    if (formData.ENABLE_WEBSOCKET_SUPPORT === 'true' || formData.ENABLE_WEBSOCKET_SUPPORT === '1') {
       if (!formData.WEBSOCKET_URL && !formData.WEBSOCKET_MANAGER) {
         errors.push({
           field: 'WEBSOCKET_URL',
@@ -113,7 +113,7 @@ export class CrossFieldValidator {
     }
     
     // Check safe mode
-    if (formData.SAFE_MODE === 'false' || formData.SAFE_MODE === false) {
+    if (formData.SAFE_MODE === 'false' || formData.SAFE_MODE === '0') {
       warnings.push({
         field: 'SAFE_MODE',
         message: 'Safe mode is disabled',
@@ -134,7 +134,7 @@ export class CrossFieldValidator {
     }
     
     // Check authentication
-    if (formData.WEBUI_AUTH === 'false' || formData.WEBUI_AUTH === false) {
+    if (formData.WEBUI_AUTH === 'false' || formData.WEBUI_AUTH === '0') {
       warnings.push({
         field: 'WEBUI_AUTH',
         message: 'Authentication is disabled',
@@ -173,7 +173,7 @@ export class CrossFieldValidator {
     })
     
     // Check debug mode
-    if (formData.DEBUG === 'true' || formData.DEBUG === true) {
+    if (formData.DEBUG === 'true' || formData.DEBUG === '1') {
       issues.push({
         field: 'DEBUG',
         message: 'Debug mode is enabled',
