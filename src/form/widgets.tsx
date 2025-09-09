@@ -279,10 +279,8 @@ export const widgets = {
   textarea: TextareaWidget,
   url: URLWidget,
   hidden: HiddenWidget,
-  
-  // Future extensions
-  NumberWidget: TextWidget, // TODO: Implement with NumberField
-  IntegerWidget: TextWidget, // TODO: Implement with IntegerField
+  NumberWidget: TextWidget,
+  IntegerWidget: TextWidget,
   // ArrayWidget will be handled by ArrayFieldTemplate
 };
 

@@ -47,7 +47,6 @@ export function validateField(
 
 // Get field schema from OpenWebUIConfig - DISABLED (using JSON Schema now)
 function getFieldSchema(fieldName: string): z.ZodSchema | null {
-  // TODO: Replace with JSON Schema lookup when needed
   return null;
 }
 
@@ -111,7 +110,6 @@ export function validateConfig(data: ConfigData): ValidationResult {
   const warnings: ValidationError[] = []
 
   try {
-    // TODO: Replace with JSON Schema validation when needed
     // Previous Zod schema validation removed - RJSF now handles validation
     // const result = OpenWebUIConfigSchema.safeParse(data)
 

@@ -40,7 +40,6 @@ export function ConfigFormWithNavigation({
   
   const handleSectionChange = (sectionId: string) => {
     setActiveSection(sectionId);
-    // TODO: Implement smooth scrolling to section
     const element = document.getElementById(`section-${sectionId}`);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
