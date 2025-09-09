@@ -44,9 +44,6 @@ export default defineConfig({
     cssMinify: true,
   },
   
-  // JSON Schema import support
-  assetsInclude: ['**/*.json'],
-  
   // Development optimization
   server: {
     port: 3000,
