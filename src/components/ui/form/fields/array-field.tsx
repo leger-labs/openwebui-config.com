@@ -23,7 +23,6 @@ export function ArrayField({
   values,
   onChange,
   placeholder = "Enter a value",
-  addButtonText = "Add Item",
   maxItems,
   id,
 }: ArrayFieldProps) {

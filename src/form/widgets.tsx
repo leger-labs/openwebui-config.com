@@ -15,9 +15,6 @@ import { ToggleField } from '@/components/ui/form/fields/toggle-field';
 import { SelectField } from '@/components/ui/form/fields/select-field';
 import { URLInput } from '@/components/ui/form/fields/url-input';
 import { MarkdownTextArea } from '@/components/ui/form/fields/markdown-text-area';
-import { NumberField } from '@/components/ui/form/fields/number-field';
-import { IntegerField } from '@/components/ui/form/fields/integer-field';
-import { ArrayField } from '@/components/ui/form/fields/array-field';
 
 /**
  * Text Widget - Maps to TextField component

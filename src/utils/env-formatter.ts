@@ -58,10 +58,8 @@ function parseEnvVariables(content: string): EnvVariable[] {
   const lines = content.split('\n')
   
   let currentComment = ''
-  let lineNumber = 0
 
   for (const line of lines) {
-    lineNumber++
     const trimmed = line.trim()
     
     if (!trimmed) {

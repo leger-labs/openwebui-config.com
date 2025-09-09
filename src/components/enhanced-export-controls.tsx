@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { FileDown, Download, Package, FileJson } from 'lucide-react'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import { Button } from '@/components/ui/button'
 import { SaveButton } from '@/components/ui/form/feedback/save-button'
 import { ExportReadinessIndicator } from '@/components/ui/form/feedback/export-readiness-indicator'
 import { ExportValidator } from '@/validation/export-validator'
@@ -48,7 +47,7 @@ export function EnhancedExportControls({
       </CardHeader>
       <CardContent className="space-y-4">
         <ExportReadinessIndicator 
-          isReady={validationResult.isReady}
+          _isReady={validationResult.isReady}
           errors={validationResult.errors}
           warnings={validationResult.warnings}
           suggestions={validationResult.suggestions}

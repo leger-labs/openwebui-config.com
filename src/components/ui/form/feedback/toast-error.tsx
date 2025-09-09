@@ -1,6 +1,5 @@
 import { useToast } from "@/hooks/use-toast"
 import { ToastAction } from "@/components/ui/toast"
-import { AlertCircle } from "lucide-react"
 
 interface ValidationError {
   field: string
@@ -13,7 +12,7 @@ interface ToastErrorProps {
   onDismiss?: () => void
 }
 
-export function showValidationErrors({ title = "Validation Error", errors, onDismiss }: ToastErrorProps) {
+export function ShowValidationErrors({ title = "Validation Error", errors, onDismiss }: ToastErrorProps) {
   const { toast } = useToast()
 
   toast({

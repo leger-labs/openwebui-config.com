@@ -15,7 +15,7 @@ export default function PlanRestrictedField(props: FieldProps) {
   return (
     <PlanRestrictedFeature 
       title={props.schema.title || props.name}
-      description={props.schema.description || ''}
+      _description={props.schema.description || ''}
       requiredPlan={planRequired as string}
       callToAction="Upgrade to access"
       onUpgradeClick={() => console.log('Upgrade clicked')}

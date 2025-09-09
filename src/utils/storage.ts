@@ -249,7 +249,7 @@ export function getStorageInfo(): { used: number; available: number; quota: numb
     // Fallback: rough estimate based on localStorage usage
     let used = 0
     for (const key in localStorage) {
-      if (localStorage.hasOwnProperty(key)) {
+      if (Object.prototype.hasOwnProperty.call(localStorage, key)) {
         used += localStorage[key].length + key.length
       }
     }

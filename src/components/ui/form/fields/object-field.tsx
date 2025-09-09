@@ -5,7 +5,6 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { FormDescription } from "@/components/ui/form"
-import { cn } from "@/lib/utils"
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible"
 
 interface ObjectFieldProps {
@@ -15,7 +14,7 @@ interface ObjectFieldProps {
   value?: Record<string, any>
   onChange?: (value: Record<string, any> | undefined) => void
   disabled?: boolean
-  id?: string
+  _id?: string
   allowedTypes?: string[]
   maxDepth?: number
   currentDepth?: number
@@ -30,12 +29,11 @@ export function ObjectField({
   value = {},
   onChange,
   disabled = false,
-  id,
+  _id,
   allowedTypes = ["string", "number", "boolean", "object"],
   maxDepth = 3,
   currentDepth = 0,
 }: ObjectFieldProps) {
-  const fieldId = id || label.toLowerCase().replace(/\s+/g, "-")
   const [isOpen, setIsOpen] = React.useState(true)
   const [newPropertyName, setNewPropertyName] = React.useState("")
   const [newPropertyType, setNewPropertyType] = React.useState<PropertyType>("string")

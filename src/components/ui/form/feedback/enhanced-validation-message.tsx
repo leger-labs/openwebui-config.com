@@ -1,5 +1,5 @@
 import React from 'react'
-import { AlertTriangle, Info, Lightbulb, XCircle } from 'lucide-react'
+import { AlertTriangle, Lightbulb, XCircle } from 'lucide-react'
 import { Alert, AlertDescription } from '@/components/ui/alert'
 import { cn } from '@/lib/utils'
 
