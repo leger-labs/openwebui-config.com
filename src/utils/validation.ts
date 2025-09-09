@@ -1,6 +1,6 @@
 import { z } from 'zod'
 import type { ConfigData, ValidationError, EnvVariable } from '@/types'
-import { OpenWebUIConfigSchema } from '@/schemas/generated-schemas'
+// Note: OpenWebUIConfigSchema removed - using JSON Schema validation in RJSF instead
 
 // Validation result type
 export interface ValidationResult {
@@ -45,14 +45,10 @@ export function validateField(
   return errors
 }
 
-// Get field schema from OpenWebUIConfig
+// Get field schema from OpenWebUIConfig - DISABLED (using JSON Schema now)
 function getFieldSchema(fieldName: string): z.ZodSchema | null {
-  try {
-    const shape = OpenWebUIConfigSchema.shape as Record<string, z.ZodSchema>
-    return shape[fieldName] || null
-  } catch {
-    return null
-  }
+  // TODO: Replace with JSON Schema lookup when needed
+  return null;
 }
 
 // Basic field validation when no schema available
@@ -115,17 +111,9 @@ export function validateConfig(data: ConfigData): ValidationResult {
   const warnings: ValidationError[] = []
 
   try {
-    // Validate against full OpenWebUI schema
-    const result = OpenWebUIConfigSchema.safeParse(data)
-    
-    if (!result.success) {
-      result.error.errors.forEach((error: any) => {
-        errors.push({
-          field: error.path.join('.') || 'root',
-          message: error.message
-        })
-      })
-    }
+    // TODO: Replace with JSON Schema validation when needed
+    // Previous Zod schema validation removed - RJSF now handles validation
+    // const result = OpenWebUIConfigSchema.safeParse(data)
 
     // Cross-field validation
     const crossFieldErrors = validateCrossFields(data)
@@ -139,7 +127,7 @@ export function validateConfig(data: ConfigData): ValidationResult {
       isValid: errors.length === 0,
       errors,
       warnings,
-      data: result.success ? result.data as ConfigData : data
+      data
     }
   } catch (error) {
     return {

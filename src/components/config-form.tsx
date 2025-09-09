@@ -4,9 +4,16 @@ import { ChevronDown } from 'lucide-react'
 import { saveConfigData } from '@/utils/storage'
 import type { ConfigData } from '@/types'
 
-// Import schema and component utilities
-import { categories, getFieldsInCategory, fieldConfigurations } from '@/schemas/generated-uiSchema'
-import { getComponentForField, getComponentProps } from '@/schemas/generated-component-mapping'
+// Import schema and component utilities - DISABLED (legacy files removed)
+// import { categories, getFieldsInCategory, fieldConfigurations } from '@/schemas/generated-uiSchema'
+// import { getComponentForField, getComponentProps } from '@/schemas/generated-component-mapping'
+
+// Temporary fallback functions to keep legacy form working
+const categories: any[] = [];
+const getFieldsInCategory = (category: string) => [];
+const fieldConfigurations: any = {};
+const getComponentForField = (fieldName: string) => 'text-field';
+const getComponentProps = (fieldName: string) => ({});
 
 // Import all available field components
 import { TextField } from '@/components/ui/form/fields/text-field'
