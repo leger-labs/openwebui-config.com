@@ -19,7 +19,6 @@ export default function SimpleFieldTemplate(props: FieldTemplateProps) {
     schema, 
     uiSchema, 
     formData,
-    disabled,
     hidden
   } = props;
   

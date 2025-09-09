@@ -10,10 +10,9 @@ import type { ConfigData } from '@/types'
 
 // Temporary fallback functions to keep legacy form working
 const categories: any[] = [];
-const getFieldsInCategory = (category: string) => [];
+const getFieldsInCategory = (_category: string) => [];
 const fieldConfigurations: any = {};
-const getComponentForField = (fieldName: string) => 'text-field';
-const getComponentProps = (fieldName: string) => ({});
+const getComponentForField = (_fieldName: string) => 'text-field';
 
 // Import all available field components
 import { TextField } from '@/components/ui/form/fields/text-field'
@@ -112,7 +111,7 @@ export function ConfigForm({ data, onDataChange, className }: ConfigFormProps) {
           />
         )
       
-      case 'select-field':
+      case 'select-field': {
         const options = fieldConfig['ui:options']?.enumOptions || []
         return (
           <SelectField
@@ -124,6 +123,7 @@ export function ConfigForm({ data, onDataChange, className }: ConfigFormProps) {
             options={options}
           />
         )
+      }
       
       case 'markdown-text-area':
         return (

@@ -42,7 +42,7 @@ export default function SimpleArrayFieldTemplate(props: ArrayFieldTemplateProps)
                 type="button"
                 variant="ghost"
                 size="sm"
-                onClick={(e) => item.onDropIndexClick(item.index)}
+                onClick={(_e) => item.onDropIndexClick(item.index)}
                 className="text-destructive hover:text-destructive/80"
               >
                 <X className="h-4 w-4" />

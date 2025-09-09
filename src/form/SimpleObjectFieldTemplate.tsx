@@ -24,7 +24,6 @@ export default function SimpleObjectFieldTemplate(props: ObjectFieldTemplateProp
   // Get custom title from uiSchema
   const displayTitle = uiSchema?.['ui:title'] || title;
   const helpText = uiSchema?.['ui:help'] || description;
-  const isCollapsible = uiSchema?.['ui:collapsible'] !== false;
   
   // Render with title if available
   if (displayTitle) {

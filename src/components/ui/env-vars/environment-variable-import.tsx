@@ -18,7 +18,6 @@ interface EnvironmentVariableImportProps {
 }
 
 export function EnvironmentVariableImport({ onImport, onCancel }: EnvironmentVariableImportProps) {
-  const [importMethod, setImportMethod] = useState<"paste" | "upload">("paste")
   const [pasteContent, setPasteContent] = useState("")
   const [environment, setEnvironment] = useState("all")
   const [parsedVariables, setParsedVariables] = useState<Array<{ key: string; value: string }>>([])
@@ -80,7 +79,7 @@ export function EnvironmentVariableImport({ onImport, onCancel }: EnvironmentVar
         <CardTitle>Import Environment Variables</CardTitle>
       </CardHeader>
       <CardContent className="space-y-4">
-        <Tabs defaultValue="paste" onValueChange={(v) => setImportMethod(v as "paste" | "upload")}>
+        <Tabs defaultValue="paste">
           <TabsList className="grid w-full grid-cols-2">
             <TabsTrigger value="paste">Paste .env</TabsTrigger>
             <TabsTrigger value="upload">Upload File</TabsTrigger>

@@ -5,7 +5,7 @@ import { LockIcon } from "lucide-react"
 
 interface PlanRestrictedFeatureProps {
   title: string
-  description: string
+  _description: string
   requiredPlan: string
   callToAction: string
   onUpgradeClick: () => void
@@ -14,7 +14,7 @@ interface PlanRestrictedFeatureProps {
 
 export function PlanRestrictedFeature({
   title,
-  description,
+  _description,
   requiredPlan,
   callToAction,
   onUpgradeClick,

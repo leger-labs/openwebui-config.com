@@ -138,7 +138,7 @@ export function setupCustomValidator(): Ajv {
         
         for (const conflict of conflicts) {
           if (parent[conflict]) {
-            // @ts-ignore
+            // @ts-expect-error - AJV's validate function expects errors to be mutated directly
             validate.errors = [{
               message: `Cannot be used together with ${conflict}`
             }]

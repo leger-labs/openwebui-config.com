@@ -6,7 +6,7 @@ import { cn } from '@/lib/utils'
 import type { ValidationMessage } from './enhanced-validation-message'
 
 interface ExportReadinessIndicatorProps {
-  isReady: boolean
+  _isReady: boolean
   errors?: ValidationMessage[]
   warnings?: ValidationMessage[]
   suggestions?: ValidationMessage[]
@@ -15,7 +15,7 @@ interface ExportReadinessIndicatorProps {
 }
 
 export function ExportReadinessIndicator({
-  isReady,
+  _isReady,
   errors = [],
   warnings = [],
   suggestions = [],

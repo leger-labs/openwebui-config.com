@@ -54,7 +54,7 @@ export function rjsfToConfigData(rjsfData: any): ConfigData {
         });
       } else {
         // This is a category level, continue recursing
-        Object.entries(obj).forEach(([key, value]) => {
+        Object.entries(obj).forEach(([_key, value]) => {
           flattenObject(value, prefix);
         });
       }
@@ -71,7 +71,6 @@ export function rjsfToConfigData(rjsfData: any): ConfigData {
  * Takes ConfigData and organizes it according to the schema hierarchy
  */
 export function configDataToRjsf(configData: ConfigData, schema: any): any {
-  const rjsfData: any = {};
   
   // Build the nested structure based on schema
   function buildNestedStructure(schemaObj: any, currentPath: string[] = []) {
@@ -143,13 +142,15 @@ function convertStringToTypedValue(stringValue: string, schema: any): any {
       if (stringValue === 'false' || stringValue === '0') return false;
       return Boolean(stringValue);
     
-    case 'integer':
+    case 'integer': {
       const intValue = parseInt(stringValue, 10);
       return isNaN(intValue) ? schema.default : intValue;
+    }
     
-    case 'number':
+    case 'number': {
       const numValue = parseFloat(stringValue);
       return isNaN(numValue) ? schema.default : numValue;
+    }
     
     case 'array':
       try {
@@ -214,7 +215,6 @@ export function validateDataCompatibility(rjsfData: any, originalConfigData: Con
     
     // Check that all original fields are preserved
     const originalKeys = Object.keys(originalConfigData);
-    const convertedKeys = Object.keys(converted);
     
     // Allow for new fields, but ensure no original fields are lost
     const missingFields = originalKeys.filter(key => !(key in converted));

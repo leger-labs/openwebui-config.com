@@ -1,8 +1,7 @@
-import { useState, useEffect, useCallback, useMemo } from 'react'
+import { useState, useCallback, useMemo } from 'react'
 import type { ConfigData, ValidationError, EnvVariable } from '@/types'
 import {
   validateField,
-  validateConfig,
   validateForExport,
   validateEnvVariables,
   validateWithDebounce,
@@ -54,7 +53,6 @@ interface UseValidationReturn extends ValidationState {
 export function useValidation(options: UseValidationOptions = {}): UseValidationReturn {
   const {
     debounceMs = 300,
-    validateOnMount = false,
     enableCrossFieldValidation = true,
     enableCompletenessWarnings = true,
     exportMode = false

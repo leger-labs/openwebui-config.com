@@ -1,6 +1,6 @@
 import type { ConfigData, EnvVariable, ValidationError } from '@/types'
 import { parseEnvContent, extractEnvVariables, formatEnvContent } from './env-parser'
-import { generateEnvContent, generateEnvFromVariables } from './env-generator'
+import { generateEnvContent } from './env-generator'
 
 // Enhanced bidirectional converter for form ↔ ENV format
 export interface ConversionResult {
@@ -26,7 +26,6 @@ export function convertFormToEnv(
   const {
     preserveComments = true,
     includeEmpty = false,
-    sortKeys = true,
     validateOutput = true,
     formatOutput = true
   } = options
@@ -102,9 +101,7 @@ export function convertEnvToForm(
   options: ConversionOptions = {}
 ): ConversionResult {
   const {
-    preserveComments = true,
-    validateOutput = true,
-    formatOutput = false
+    validateOutput = true
   } = options
 
   try {
@@ -242,11 +239,9 @@ export function formatEnvContentAdvanced(
   const { 
     groupByPrefix = false, 
     sortWithinGroups = true, 
-    addSectionHeaders = false,
-    preserveEmptyLines = true 
+    addSectionHeaders = false
   } = options
 
-  const lines = content.split('\n')
   const variables = extractEnvVariables(content)
   
   if (!groupByPrefix) {

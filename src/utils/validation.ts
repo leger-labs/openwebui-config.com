@@ -46,7 +46,7 @@ export function validateField(
 }
 
 // Get field schema from OpenWebUIConfig - DISABLED (using JSON Schema now)
-function getFieldSchema(fieldName: string): z.ZodSchema | null {
+function getFieldSchema(_fieldName: string): z.ZodSchema | null {
   return null;
 }
 
