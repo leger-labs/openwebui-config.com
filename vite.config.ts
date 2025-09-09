@@ -1,25 +1,27 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
+import { cloudflare } from '@cloudflare/vite-plugin'
 import path from 'path'
 
 export default defineConfig({
-  plugins: [react()],
-  base: '/', // Ensure correct asset paths for Cloudflare Workers
+  plugins: [
+    react(),
+    cloudflare() // Add Cloudflare plugin
+  ],
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
     },
   },
   build: {
-    target: 'esnext', // Modern browsers for edge deployment
+    target: 'esnext',
     outDir: 'dist',
     minify: 'esbuild',
-    sourcemap: false, // Reduce deployment size
+    sourcemap: false,
     
     rollupOptions: {
       output: {
         manualChunks: {
-          // Optimize chunk splitting for edge caching
           'vendor': ['react', 'react-dom'],
           'rjsf': ['@rjsf/core', '@rjsf/validator-ajv8'],
           'ui': ['@radix-ui/react-accordion', '@radix-ui/react-dialog', '@radix-ui/react-select', 
@@ -34,17 +36,13 @@ export default defineConfig({
       },
     },
     
-    // Optimize for Cloudflare Workers
     assetsInlineLimit: 4096,
     chunkSizeWarningLimit: 1000,
     cssCodeSplit: true,
-    
-    // Performance optimizations
     reportCompressedSize: true,
     cssMinify: true,
   },
   
-  // Development optimization
   server: {
     port: 3000,
     host: true,
@@ -63,7 +61,6 @@ export default defineConfig({
     logOverride: { 'this-is-undefined-in-esm': 'silent' }
   },
   
-  // Optimize dependencies
   optimizeDeps: {
     include: ['react', 'react-dom', '@rjsf/core', '@rjsf/validator-ajv8'],
     exclude: ['@cloudflare/workers-types']
