@@ -29,10 +29,10 @@ export function ValidationSummary({
     return 'text-green-600'
   }
 
-  const getProgressColor = () => {
-    if (errorCount > 0) return 'bg-red-600'
-    if (warningCount > 0) return 'bg-yellow-600'
-    return 'bg-green-600'
+  const getProgressClassName = () => {
+    if (errorCount > 0) return '[&>*]:bg-red-600'
+    if (warningCount > 0) return '[&>*]:bg-yellow-600'
+    return '[&>*]:bg-green-600'
   }
 
   return (
@@ -52,8 +52,7 @@ export function ValidationSummary({
         
         <Progress 
           value={completionPercentage} 
-          className="h-2"
-          indicatorClassName={getProgressColor()}
+          className={cn("h-2", getProgressClassName())}
         />
         
         <div className="grid grid-cols-3 gap-4 text-center">

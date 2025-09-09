@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { FieldProps } from '@rjsf/core'
+import { FieldProps } from '@rjsf/utils'
 import { OverrideableField } from '@/components/ui/form/wrappers/overrideable-field'
 
 export default function OverrideableFieldWrapper(props: FieldProps) {
@@ -9,8 +9,8 @@ export default function OverrideableFieldWrapper(props: FieldProps) {
   
   // If not overrideable, render the default field
   if (!isOverrideable) {
-    const DefaultFieldTemplate = props.registry.templates.FieldTemplate
-    return <DefaultFieldTemplate {...props} />
+    const DefaultField = props.registry.fields.StringField || props.registry.fields.default
+    return <DefaultField {...props} />
   }
   
   const handleOverride = (overridden: boolean) => {
@@ -21,16 +21,17 @@ export default function OverrideableFieldWrapper(props: FieldProps) {
     }
   }
   
-  // Wrap the field with override capability
+  // Use the OverrideableField component with proper props
   return (
     <OverrideableField 
-      defaultValue={defaultValue}
-      onOverride={handleOverride}
-    >
-      {React.createElement(props.registry.templates.FieldTemplate, {
-        ...props,
-        disabled: !isOverridden && defaultValue !== undefined
-      })}
-    </OverrideableField>
+      label={props.schema.title || props.name}
+      description={props.schema.description}
+      defaultValue={String(defaultValue || '')}
+      value={String(props.formData || '')}
+      onChange={(value) => props.onChange(value)}
+      overridden={isOverridden}
+      onOverrideChange={handleOverride}
+      id={props.idSchema.$id}
+    />
   )
 }

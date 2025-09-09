@@ -83,7 +83,6 @@ export function setupCustomValidator(): Ajv {
   const ajv = new Ajv({ 
     allErrors: true, 
     verbose: true,
-    strict: false,
     validateFormats: true,
     addUsedSchema: false
   })
@@ -93,18 +92,14 @@ export function setupCustomValidator(): Ajv {
   
   // Add custom formats
   Object.entries(customFormats).forEach(([name, format]) => {
-    ajv.addFormat(name, {
-      validate: format.validate,
-      // @ts-ignore - AJV types don't include error property but it works
-      error: format.error
-    })
+    ajv.addFormat(name, format.validate)
   })
   
   // Add custom keywords for enhanced validation
   ajv.addKeyword({
     keyword: 'dependsOn',
     schemaType: 'object',
-    compile: function(schemaVal) {
+    compile: function(schemaVal: any) {
       return function validate(data: any, dataPath: any) {
         const parent = dataPath?.parentData
         if (!parent) return true
@@ -122,7 +117,7 @@ export function setupCustomValidator(): Ajv {
   ajv.addKeyword({
     keyword: 'requiresAny',
     schemaType: 'array',
-    compile: function(schemaVal) {
+    compile: function(schemaVal: any) {
       return function validate(data: any, dataPath: any) {
         const parent = dataPath?.parentData
         if (!parent) return true
@@ -135,7 +130,7 @@ export function setupCustomValidator(): Ajv {
   ajv.addKeyword({
     keyword: 'conflictsWith',
     schemaType: ['string', 'array'],
-    compile: function(schemaVal) {
+    compile: function(schemaVal: any) {
       const conflicts = Array.isArray(schemaVal) ? schemaVal : [schemaVal]
       return function validate(data: any, dataPath: any) {
         const parent = dataPath?.parentData

@@ -8,16 +8,13 @@
     "build": "vite build",
     "build:analyze": "vite build --mode analyze",
     "preview": "vite preview",
-    
     "deploy": "npm run build && wrangler pages deploy dist",
     "deploy:staging": "npm run build && wrangler pages deploy dist --env staging",
     "deploy:production": "npm run build && wrangler pages deploy dist --env production",
-    
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "lint:fix": "eslint . --ext ts,tsx --fix",
     "typecheck": "tsc --noEmit",
     "format": "prettier --write \"src/**/*.{ts,tsx}\"",
-    
     "ci": "npm run typecheck && npm run lint && npm run build",
     "test:build": "npm run build && npm run preview"
   },
@@ -77,6 +74,7 @@
     "@typescript-eslint/eslint-plugin": "^6.0.0",
     "@typescript-eslint/parser": "^6.0.0",
     "@vitejs/plugin-react": "^4.0.3",
+    "ajv": "^8.17.1",
     "autoprefixer": "^10.4.14",
     "eslint": "^8.45.0",
     "eslint-plugin-react-hooks": "^4.6.0",
