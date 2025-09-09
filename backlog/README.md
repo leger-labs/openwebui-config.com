@@ -1,4 +1,3 @@
-current directory structure for this repo
 
 Directory structure:
 └── leger-labs-openwebui-config.com/
@@ -15,57 +14,35 @@ Directory structure:
     ├── .prettierrc
     ├── backlog/
     │   ├── README.md
-    │   ├── task-001-number-field-component.md
-    │   ├── task-002-integer-field-component.md
-    │   ├── task-003-object-field-component.md
-    │   ├── task-004-date-field-component.md
-    │   ├── task-005-main-application-component.md
-    │   ├── task-006-mode-toggle-interface.md
-    │   ├── task-007-import-functionality.md
-    │   ├── task-008-export-functionality.md
-    │   ├── task-009-raw-text-editor.md
-    │   ├── task-010-localstorage-integration.md
-    │   ├── task-011-validation-system.md
-    │   ├── task-012-format-converters.md
-    │   ├── task-013-project-configuration.md
-    │   └── task-014-cloudflare-workers-deployment.md
+    │   ├── task-015-component-audit-standardization.md
+    │   ├── task-016-schema-conversion-to-native-json-schema.md
+    │   ├── task-017-rjsf-widget-adapter-implementation.md
+    │   ├── task-018-form-component-integration.md
+    │   ├── task-019-category-navigation-system.md
+    │   ├── task-020-legacy-code-cleanup.md
+    │   ├── task-021-enhanced-validation-pipeline.md
+    │   ├── task-022-build-process-optimization.md
+    │   ├── task-023-advanced-ui-component-integration.md
+    │   ├── task-024-final-testing-and-documentation.md
+    │   └── task-025-production-deployment-and-launch.md
     ├── docs/
     │   ├── README.md
     │   ├── CLOUDFLARE-RULES.md
+    │   ├── COMPONENT-STANDARDIZATION.md
     │   ├── COMPONENTS.md
     │   ├── PROJECT-OVERVIEW.md
     │   ├── PROJECT-STRUCTURE.md
     │   ├── SCHEMA-DESIGN.md
     │   └── TECHNICAL-INFRASTRUCTURE.md
     ├── scripts/
-    │   ├── extract-uiSchema/
-    │   │   ├── README.md
-    │   │   ├── category-builder.js
-    │   │   ├── dependency-processor.js
-    │   │   ├── extension-extractor.js
-    │   │   ├── index.js
-    │   │   ├── output-formatter.js
-    │   │   ├── package.json
-    │   │   ├── schema-parser.js
-    │   │   └── uiSchema-builder.js
-    │   ├── generate-component-mapping/
-    │   │   ├── README.md
-    │   │   ├── component-mapping-config.js
-    │   │   ├── index.js
-    │   │   ├── mapping-generator.js
-    │   │   ├── output-formatter.js
-    │   │   ├── package.json
-    │   │   └── schema-reader.js
-    │   └── openapi-to-zod/
-    │       ├── README.md
-    │       ├── index.js
-    │       ├── package.json
-    │       └── zod-processor.js
+    │   └── convert-schema.js
     ├── src/
     │   ├── App.tsx
     │   ├── index.css
     │   ├── main.tsx
     │   ├── components/
+    │   │   ├── config-form-rjsf.tsx
+    │   │   ├── config-form-with-navigation.tsx
     │   │   ├── config-form.tsx
     │   │   ├── export-controls.tsx
     │   │   ├── import-controls.tsx
@@ -175,18 +152,23 @@ Directory structure:
     │   │       │   └── protection-mode-selector.tsx
     │   │       └── team/
     │   │           └── team-selector-chip.tsx
+    │   ├── form/
+    │   │   ├── data-transformers.ts
+    │   │   ├── SimpleArrayFieldTemplate.tsx
+    │   │   ├── SimpleFieldTemplate.tsx
+    │   │   ├── SimpleObjectFieldTemplate.tsx
+    │   │   └── widgets.tsx
     │   ├── hooks/
     │   │   ├── use-local-storage.ts
     │   │   ├── use-mobile.tsx
+    │   │   ├── use-theme.ts
     │   │   ├── use-toast.ts
     │   │   └── use-validation.ts
     │   ├── lib/
     │   │   └── utils.ts
-    │   ├── schemas/
-    │   │   ├── generated-schemas.ts
-    │   │   └── index.ts
     │   ├── types/
     │   │   ├── index.ts
+    │   │   ├── json.d.ts
     │   │   └── storage.ts
     │   └── utils/
     │       ├── env-converter.ts
