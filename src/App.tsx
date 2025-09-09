@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { ModeToggle } from '@/components/mode-toggle'
 import { ConfigForm } from '@/components/config-form'
+import { ConfigFormRJSF } from '@/components/config-form-rjsf'
 import { RawEditor } from '@/components/raw-editor'
 import { ImportControls } from '@/components/import-controls'
 import { ExportControls } from '@/components/export-controls'
@@ -14,6 +15,7 @@ export default function App() {
   const [configData, setConfigData] = useState<ConfigData>({})
   const [rawContent, setRawContent] = useState('')
   const [isLoading, setIsLoading] = useState(true)
+  const [useRJSF, setUseRJSF] = useState(false) // Development toggle
   
   // Initialize app state from localStorage
   useEffect(() => {
@@ -115,6 +117,18 @@ export default function App() {
           onModeChange={handleModeChange}
         />
         
+        {/* Development Toggle for RJSF */}
+        <div className="mb-4 p-4 bg-muted/50 rounded-lg">
+          <label className="flex items-center gap-2 text-sm">
+            <input
+              type="checkbox"
+              checked={useRJSF}
+              onChange={(e) => setUseRJSF(e.target.checked)}
+            />
+            Use RJSF Form (Development)
+          </label>
+        </div>
+        
         {/* Import/Export Controls */}
         <div className="grid md:grid-cols-2 gap-4 mb-6">
           <ImportControls 
@@ -130,10 +144,17 @@ export default function App() {
         
         {/* Main Editor */}
         {mode === 'form' ? (
-          <ConfigForm 
-            data={configData}
-            onDataChange={handleConfigDataChange}
-          />
+          useRJSF ? (
+            <ConfigFormRJSF 
+              data={configData}
+              onDataChange={handleConfigDataChange}
+            />
+          ) : (
+            <ConfigForm 
+              data={configData}
+              onDataChange={handleConfigDataChange}
+            />
+          )
         ) : (
           <RawEditor 
             content={rawContent}
