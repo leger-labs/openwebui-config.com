@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { ModeToggle } from '@/components/mode-toggle'
 import { ConfigForm } from '@/components/config-form'
 import { ConfigFormRJSF } from '@/components/config-form-rjsf'
+import { ConfigFormWithNavigation } from '@/components/config-form-with-navigation'
 import { RawEditor } from '@/components/raw-editor'
 import { ImportControls } from '@/components/import-controls'
 import { ExportControls } from '@/components/export-controls'
@@ -16,6 +17,7 @@ export default function App() {
   const [rawContent, setRawContent] = useState('')
   const [isLoading, setIsLoading] = useState(true)
   const [useRJSF, setUseRJSF] = useState(false) // Development toggle
+  const [useNavigation, setUseNavigation] = useState(false) // Navigation toggle
   
   // Initialize app state from localStorage
   useEffect(() => {
@@ -117,8 +119,8 @@ export default function App() {
           onModeChange={handleModeChange}
         />
         
-        {/* Development Toggle for RJSF */}
-        <div className="mb-4 p-4 bg-muted/50 rounded-lg">
+        {/* Development Toggles */}
+        <div className="mb-4 p-4 bg-muted/50 rounded-lg space-y-2">
           <label className="flex items-center gap-2 text-sm">
             <input
               type="checkbox"
@@ -127,6 +129,16 @@ export default function App() {
             />
             Use RJSF Form (Development)
           </label>
+          {useRJSF && (
+            <label className="flex items-center gap-2 text-sm ml-4">
+              <input
+                type="checkbox"
+                checked={useNavigation}
+                onChange={(e) => setUseNavigation(e.target.checked)}
+              />
+              Use Navigation Layout (Task 019)
+            </label>
+          )}
         </div>
         
         {/* Import/Export Controls */}
@@ -145,10 +157,17 @@ export default function App() {
         {/* Main Editor */}
         {mode === 'form' ? (
           useRJSF ? (
-            <ConfigFormRJSF 
-              data={configData}
-              onDataChange={handleConfigDataChange}
-            />
+            useNavigation ? (
+              <ConfigFormWithNavigation 
+                data={configData}
+                onDataChange={handleConfigDataChange}
+              />
+            ) : (
+              <ConfigFormRJSF 
+                data={configData}
+                onDataChange={handleConfigDataChange}
+              />
+            )
           ) : (
             <ConfigForm 
               data={configData}
