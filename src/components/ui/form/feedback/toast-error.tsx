@@ -1,5 +1,3 @@
-"use client"
-
 import { useToast } from "@/hooks/use-toast"
 import { ToastAction } from "@/components/ui/toast"
 import { AlertCircle } from "lucide-react"

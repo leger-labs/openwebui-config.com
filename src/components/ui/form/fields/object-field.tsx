@@ -1,5 +1,3 @@
-"use client"
-
 import React from "react"
 import { Plus, X, ChevronDown, ChevronRight } from "lucide-react"
 import { Label } from "@/components/ui/label"

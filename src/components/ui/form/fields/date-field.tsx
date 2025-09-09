@@ -1,5 +1,3 @@
-"use client"
-
 import React from "react"
 import { Calendar as CalendarIcon } from "lucide-react"
 import { Label } from "@/components/ui/label"
