@@ -1,6 +1,6 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "openwebui-config-tool-production",
+  "name": "openwebui-config-tool",
   "compatibility_date": "2025-04-01",
   "compatibility_flags": ["nodejs_compat"],
   
