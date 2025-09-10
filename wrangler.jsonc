@@ -1,6 +1,6 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "openwebui-config-tool",
+  "name": "openwebui-config-tool-production",
   "compatibility_date": "2025-04-01",
   "compatibility_flags": ["nodejs_compat"],
   
@@ -15,16 +15,8 @@
     "mode": "smart"
   },
   
-  "env": {
-    "staging": {
-      "name": "openwebui-config-tool-staging"
-    },
-    "production": {
-      "name": "openwebui-config-tool-production",
-      "routes": [
-        { "pattern": "openwebui-config.com", "custom_domain": true },
-        { "pattern": "www.openwebui-config.com", "custom_domain": true }
-      ]
-    }
-  }
+  "routes": [
+    { "pattern": "openwebui-config.com", "custom_domain": true },
+    { "pattern": "www.openwebui-config.com", "custom_domain": true }
+  ]
 }
