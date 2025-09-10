@@ -74,7 +74,7 @@
     "@types/react-dom": "^18.2.7",
     "@typescript-eslint/eslint-plugin": "^6.0.0",
     "@typescript-eslint/parser": "^6.0.0",
-    "@vitejs/plugin-react": "^4.0.3",
+    "@vitejs/plugin-react": "^4.3.4",
     "ajv": "^8.17.1",
     "autoprefixer": "^10.4.14",
     "eslint": "^8.45.0",
@@ -85,7 +85,7 @@
     "prettier-plugin-tailwindcss": "^0.5.7",
     "tailwindcss": "^3.3.3",
     "typescript": "^5.0.2",
-    "vite": "^4.4.5",
+    "vite": "^6.1.0",
     "vite-plugin-pwa": "^0.17.4",
     "wrangler": "^4.33.1"
   }

@@ -26,9 +26,13 @@ jobs:
           node-version: ${{ env.NODE_VERSION }}
           cache: 'npm'
       
-      - name: 📥 Install dependencies
-        run: npm ci
-      
+       - name: 📥 Install dependencies
+        run: |
+          echo "Removing old lock file to resolve dependency conflicts..."
+          rm -f package-lock.json
+          echo "Installing fresh dependencies..."
+          npm install     
+
       - name: 🔍 Run quality checks
         run: |
           echo "Running type checking..."
