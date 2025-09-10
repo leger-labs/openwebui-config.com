@@ -136,7 +136,7 @@ export default function App() {
                 checked={useNavigation}
                 onChange={(e) => setUseNavigation(e.target.checked)}
               />
-              Use Navigation Layout (Task 019)
+              Use Navigation Layout (Task 19)
             </label>
           )}
         </div>
