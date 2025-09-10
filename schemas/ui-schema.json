@@ -2,8 +2,6 @@
   "$schema": "https://schemas.openwebui.com/ui-schema/v1",
   "ui:title": "OpenWebUI Configuration",
   "ui:description": "Configure your OpenWebUI deployment",
-  "ui:ObjectFieldTemplate": "CategoryObjectTemplate",
-  "ui:FieldTemplate": "AdvancedFieldTemplate",
   "app": {
     "ui:title": "App Settings",
     "ui:collapsible": true,
