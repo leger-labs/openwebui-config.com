@@ -61,10 +61,16 @@ export function ConfigFormRJSF({ data, onDataChange, className }: ConfigFormRJSF
       
       // Ensure schema has required structure
       if (!schema.properties) {
+        console.error('Invalid schema structure: missing properties')
         setSchemaError('Invalid schema structure: missing properties')
-        return configSchemaRaw as RJSFSchema
+        // Return a minimal valid schema as fallback
+        return {
+          type: 'object',
+          properties: {},
+          title: 'Configuration'
+        } as RJSFSchema
       }
-      
+  
       // More robust handling of oauth and ldap sections
       // Check if oauth exists in ui-schema but not in config schema
       if ('oauth' in uiSchemaRaw && schema.properties.security) {
@@ -76,11 +82,13 @@ export function ConfigFormRJSF({ data, onDataChange, className }: ConfigFormRJSF
           schema.properties.security.properties.oauth = {
             type: 'object',
             title: 'OAuth Configuration',
-            properties: extractPropertiesFromUiSchema(uiSchemaRaw.oauth as Record<string, unknown>)
+            properties: extractPropertiesFromUiSchema(
+              uiSchemaRaw.oauth as Record<string, unknown>
+            )
           }
         }
       }
-      
+  
       // Same for LDAP
       if ('ldap' in uiSchemaRaw && schema.properties.security) {
         if (!schema.properties.security.properties) {
@@ -90,17 +98,29 @@ export function ConfigFormRJSF({ data, onDataChange, className }: ConfigFormRJSF
           schema.properties.security.properties.ldap = {
             type: 'object',
             title: 'LDAP Configuration',
-            properties: extractPropertiesFromUiSchema(uiSchemaRaw.ldap as Record<string, unknown>)
+            properties: extractPropertiesFromUiSchema(
+              uiSchemaRaw.ldap as Record<string, unknown>
+            )
           }
         }
       }
-      
+  
+      // If everything passes, clear schema error
       setSchemaError(null)
       return schema as RJSFSchema
     } catch (error) {
-      const errorMessage = error instanceof Error ? error.message : 'Failed to process configuration schema'
+      const errorMessage =
+        error instanceof Error
+          ? error.message
+          : 'Failed to process configuration schema'
+      console.error('Schema processing error:', errorMessage)
       setSchemaError(errorMessage)
-      return configSchemaRaw as RJSFSchema
+      // Return a minimal valid schema as fallback
+      return {
+        type: 'object',
+        properties: {},
+        title: 'Configuration'
+      } as RJSFSchema
     }
   }, [extractPropertiesFromUiSchema])
 
@@ -309,6 +329,17 @@ export function ConfigFormRJSF({ data, onDataChange, className }: ConfigFormRJSF
     )
   }
 
+  if (!configSchema || !configSchema.properties) {
+    return (
+      <Alert variant="destructive" className={className}>
+        <AlertCircle className="h-4 w-4" />
+        <AlertDescription>
+          Failed to load configuration schema. Please refresh the page.
+        </AlertDescription>
+      </Alert>
+    )
+  }
+
   return (
     <div className={cn("space-y-6", className)}>
       {/* Controls Card */}
@@ -456,7 +487,7 @@ export function ConfigFormRJSF({ data, onDataChange, className }: ConfigFormRJSF
       </Card>
 
       {/* Debug Information (only in development) */}
-      {process.env.NODE_ENV === 'development' && errors.length > 0 && (
+      {import.meta.env.DEV && errors.length > 0 && (
         <Card>
           <CardContent className="pt-6">
             <details>

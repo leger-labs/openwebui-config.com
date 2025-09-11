@@ -7,6 +7,7 @@ on:
 
 env:
   NODE_VERSION: '20'
+  NODE_ENV: 'production'  # Add this to ensure production build
 
 jobs:
   deploy:
@@ -41,9 +42,12 @@ jobs:
           npm run lint || true  # Allow to continue even if lint fails
       
       - name: 🏗️ Build application with Vite
-        run: npm run build
+        run: |
+          echo "Building with production environment..."
+          NODE_ENV=production npm run build
         env:
           NODE_ENV: production
+          VITE_APP_ENV: production  # Add Vite-specific env var
       
       - name: 📊 Check build output
         run: |
@@ -56,6 +60,10 @@ jobs:
           echo "Build size report:"
           du -sh dist/
           ls -la dist/
+          # Check for index.html
+          if [ ! -f "dist/index.html" ]; then
+            echo "⚠️ Warning: index.html not found in dist"
+          fi
       
       - name: 🚀 Deploy to Cloudflare Workers
         run: |
