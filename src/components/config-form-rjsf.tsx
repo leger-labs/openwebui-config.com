@@ -22,12 +22,12 @@ import { cn } from '@/lib/utils'
 interface ConfigFormRJSFProps {
   data: ConfigData
   onDataChange: (data: ConfigData) => void
-  className?: string // Restored className prop
+  className?: string
 }
 
 export function ConfigFormRJSF({ data, onDataChange, className }: ConfigFormRJSFProps) {
-  const [formData, setFormData] = useState<any>({})
-  const [errors, setErrors] = useState<any[]>([])
+  const [formData, setFormData] = useState<Record<string, unknown>>({})
+  const [errors, setErrors] = useState<Array<{ message: string }>>([])
   const [isValid, setIsValid] = useState(true)
   const [showHiddenFields, setShowHiddenFields] = useState(false)
   const [expandedSections, setExpandedSections] = useState<Set<string>>(new Set())
@@ -35,63 +35,13 @@ export function ConfigFormRJSF({ data, onDataChange, className }: ConfigFormRJSF
   const [isLoading, setIsLoading] = useState(true)
   const [schemaError, setSchemaError] = useState<string | null>(null)
 
-  // Dynamically restructure schema with better error handling
-  const configSchema = useMemo(() => {
-    try {
-      const schema = JSON.parse(JSON.stringify(configSchemaRaw))
-      
-      // Ensure schema has required structure
-      if (!schema.properties) {
-        console.error('Schema missing properties field')
-        setSchemaError('Invalid schema structure: missing properties')
-        return configSchemaRaw as RJSFSchema
-      }
-      
-      // More robust handling of oauth and ldap sections
-      // Check if oauth exists in ui-schema but not in config schema
-      if (uiSchemaRaw.oauth && schema.properties.security) {
-        if (!schema.properties.security.properties) {
-          schema.properties.security.properties = {}
-        }
-        // Only add if it doesn't already exist
-        if (!schema.properties.security.properties.oauth) {
-          schema.properties.security.properties.oauth = {
-            type: 'object',
-            title: 'OAuth Configuration',
-            properties: extractPropertiesFromUiSchema(uiSchemaRaw.oauth)
-          }
-        }
-      }
-      
-      // Same for LDAP
-      if (uiSchemaRaw.ldap && schema.properties.security) {
-        if (!schema.properties.security.properties) {
-          schema.properties.security.properties = {}
-        }
-        if (!schema.properties.security.properties.ldap) {
-          schema.properties.security.properties.ldap = {
-            type: 'object',
-            title: 'LDAP Configuration',
-            properties: extractPropertiesFromUiSchema(uiSchemaRaw.ldap)
-          }
-        }
-      }
-      
-      setSchemaError(null)
-      return schema as RJSFSchema
-    } catch (error) {
-      console.error('Failed to process schema:', error)
-      setSchemaError('Failed to process configuration schema')
-      return configSchemaRaw as RJSFSchema
-    }
-  }, [])
-
   // Helper function to extract properties from UI schema
-  const extractPropertiesFromUiSchema = useCallback((uiSchemaSection: any): any => {
-    const properties: any = {}
+  const extractPropertiesFromUiSchema = useCallback((uiSchemaSection: Record<string, unknown>): Record<string, unknown> => {
+    const properties: Record<string, unknown> = {}
     
-    if (uiSchemaSection && uiSchemaSection.properties) {
-      Object.keys(uiSchemaSection.properties).forEach(key => {
+    if (uiSchemaSection && typeof uiSchemaSection === 'object' && 'properties' in uiSchemaSection) {
+      const sectionProps = uiSchemaSection.properties as Record<string, unknown>
+      Object.keys(sectionProps).forEach(key => {
         if (!key.startsWith('ui:')) {
           properties[key] = {
             type: 'string',
@@ -104,17 +54,68 @@ export function ConfigFormRJSF({ data, onDataChange, className }: ConfigFormRJSF
     return properties
   }, [])
 
+  // Dynamically restructure schema with better error handling
+  const configSchema = useMemo(() => {
+    try {
+      const schema = JSON.parse(JSON.stringify(configSchemaRaw))
+      
+      // Ensure schema has required structure
+      if (!schema.properties) {
+        setSchemaError('Invalid schema structure: missing properties')
+        return configSchemaRaw as RJSFSchema
+      }
+      
+      // More robust handling of oauth and ldap sections
+      // Check if oauth exists in ui-schema but not in config schema
+      if ('oauth' in uiSchemaRaw && schema.properties.security) {
+        if (!schema.properties.security.properties) {
+          schema.properties.security.properties = {}
+        }
+        // Only add if it doesn't already exist
+        if (!schema.properties.security.properties.oauth) {
+          schema.properties.security.properties.oauth = {
+            type: 'object',
+            title: 'OAuth Configuration',
+            properties: extractPropertiesFromUiSchema(uiSchemaRaw.oauth as Record<string, unknown>)
+          }
+        }
+      }
+      
+      // Same for LDAP
+      if ('ldap' in uiSchemaRaw && schema.properties.security) {
+        if (!schema.properties.security.properties) {
+          schema.properties.security.properties = {}
+        }
+        if (!schema.properties.security.properties.ldap) {
+          schema.properties.security.properties.ldap = {
+            type: 'object',
+            title: 'LDAP Configuration',
+            properties: extractPropertiesFromUiSchema(uiSchemaRaw.ldap as Record<string, unknown>)
+          }
+        }
+      }
+      
+      setSchemaError(null)
+      return schema as RJSFSchema
+    } catch (error) {
+      const errorMessage = error instanceof Error ? error.message : 'Failed to process configuration schema'
+      setSchemaError(errorMessage)
+      return configSchemaRaw as RJSFSchema
+    }
+  }, [extractPropertiesFromUiSchema])
+
   // Dynamically get top-level properties from schema with error handling
   const topLevelProperties = useMemo(() => {
     try {
       return Object.keys(configSchema.properties || {}).filter(key => {
         // Filter based on search query
         if (!searchQuery) return true
+        const schema = configSchema.properties?.[key] as Record<string, unknown> | undefined
+        const title = schema?.title as string || ''
         return key.toLowerCase().includes(searchQuery.toLowerCase()) ||
-               (configSchema.properties?.[key]?.title || '').toLowerCase().includes(searchQuery.toLowerCase())
+               title.toLowerCase().includes(searchQuery.toLowerCase())
       })
     } catch (error) {
-      console.error('Failed to extract top-level properties:', error)
       return []
     }
   }, [configSchema, searchQuery])
@@ -122,12 +123,12 @@ export function ConfigFormRJSF({ data, onDataChange, className }: ConfigFormRJSF
   // Process UI schema to handle hidden fields toggle with enhanced error handling
   const processedUiSchema = useMemo(() => {
     try {
-      const processSchema = (schema: any, path: string[] = []): any => {
+      const processSchema = (schema: unknown, path: string[] = []): unknown => {
         if (!schema || typeof schema !== 'object') return schema
         
-        const processed: any = {}
+        const processed: Record<string, unknown> = {}
         
-        for (const [key, value] of Object.entries(schema)) {
+        for (const [key, value] of Object.entries(schema as Record<string, unknown>)) {
           if (key === 'ui:widget' && value === 'hidden') {
             if (showHiddenFields) {
               // Convert hidden widget to text widget when showing hidden fields
@@ -152,23 +153,25 @@ export function ConfigFormRJSF({ data, onDataChange, className }: ConfigFormRJSF
       }
       
       // Start with the raw UI schema
-      let uiSchema = JSON.parse(JSON.stringify(uiSchemaRaw))
+      const uiSchema = JSON.parse(JSON.stringify(uiSchemaRaw)) as Record<string, unknown>
       
       // Move oauth and ldap under security in UI schema if they exist at root level
-      if (uiSchema.oauth) {
-        if (!uiSchema.security) uiSchema.security = {}
-        uiSchema.security.oauth = uiSchema.oauth
+      if ('oauth' in uiSchema) {
+        if (!('security' in uiSchema)) uiSchema.security = {}
+        const security = uiSchema.security as Record<string, unknown>
+        security.oauth = uiSchema.oauth
         delete uiSchema.oauth
       }
       
-      if (uiSchema.ldap) {
-        if (!uiSchema.security) uiSchema.security = {}
-        uiSchema.security.ldap = uiSchema.ldap
+      if ('ldap' in uiSchema) {
+        if (!('security' in uiSchema)) uiSchema.security = {}
+        const security = uiSchema.security as Record<string, unknown>
+        security.ldap = uiSchema.ldap
         delete uiSchema.ldap
       }
       
       // Process the schema to handle hidden fields
-      const processed = processSchema(uiSchema)
+      const processed = processSchema(uiSchema) as Record<string, unknown>
       
       // Dynamically set ui:order based on actual schema properties
       processed['ui:order'] = topLevelProperties
@@ -176,14 +179,14 @@ export function ConfigFormRJSF({ data, onDataChange, className }: ConfigFormRJSF
       // Add collapsible UI hints for better UX
       topLevelProperties.forEach(prop => {
         if (processed[prop] && typeof processed[prop] === 'object') {
-          processed[prop]['ui:collapsible'] = true
-          processed[prop]['ui:collapsed'] = !expandedSections.has(prop)
+          const section = processed[prop] as Record<string, unknown>
+          section['ui:collapsible'] = true
+          section['ui:collapsed'] = !expandedSections.has(prop)
         }
       })
       
       return processed as UiSchema
     } catch (error) {
-      console.error('Failed to process UI schema:', error)
       return uiSchemaRaw as UiSchema
     }
   }, [showHiddenFields, topLevelProperties, expandedSections])
@@ -193,10 +196,10 @@ export function ConfigFormRJSF({ data, onDataChange, className }: ConfigFormRJSF
     try {
       let count = 0
       
-      const countHidden = (obj: any): void => {
+      const countHidden = (obj: unknown): void => {
         if (!obj || typeof obj !== 'object') return
         
-        for (const [key, value] of Object.entries(obj)) {
+        for (const [key, value] of Object.entries(obj as Record<string, unknown>)) {
           if (key === 'ui:widget' && value === 'hidden') {
             count++
           } else if (typeof value === 'object' && !Array.isArray(value)) {
@@ -207,8 +210,7 @@ export function ConfigFormRJSF({ data, onDataChange, className }: ConfigFormRJSF
       
       countHidden(uiSchemaRaw)
       return count
-    } catch (error) {
-      console.error('Failed to count hidden fields:', error)
+    } catch {
       return 0
     }
   }, [])
@@ -226,8 +228,7 @@ export function ConfigFormRJSF({ data, onDataChange, className }: ConfigFormRJSF
           setErrors([])
           setIsValid(true)
         }
-      } catch (error) {
-        console.error('Failed to transform data for RJSF:', error)
+      } catch {
         if (mounted) {
           setErrors([{ message: 'Failed to load configuration data' }])
           setIsValid(false)
@@ -254,8 +255,7 @@ export function ConfigFormRJSF({ data, onDataChange, className }: ConfigFormRJSF
       onDataChange(flatData)
       setErrors(e.errors || [])
       setIsValid((e.errors?.length || 0) === 0)
-    } catch (error) {
-      console.error('Failed to handle form change:', error)
+    } catch {
       setErrors([{ message: 'Failed to process form changes' }])
     }
   }, [onDataChange])
