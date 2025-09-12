@@ -1,7 +1,6 @@
 // src/components/config-form-rjsf.tsx
 import React, { useState, useEffect, useCallback } from 'react'
 import Form from '@rjsf/core'
-import { IChangeEvent } from '@rjsf/utils'
 import validator from '@rjsf/validator-ajv8'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Alert, AlertDescription } from '@/components/ui/alert'
@@ -52,7 +51,7 @@ export function ConfigFormRJSF({ data, onDataChange, className }: ConfigFormRJSF
   }, [data])
 
   // Handle form changes
-  const handleChange = useCallback((e: IChangeEvent) => {
+  const handleChange = useCallback((e: any) => {
     try {
       setFormData(e.formData)
       const flatData = rjsfToConfigData(e.formData)
