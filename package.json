@@ -4,22 +4,17 @@
   "description": "Configuration tool for OpenWebUI deployments",
   "type": "module",
   "scripts": {
-    "dev": "npm run generate:schemas && vite",
-    "build": "npm run generate:schemas && vite build",
-    "build:analyze": "npm run generate:schemas && vite build --mode analyze",
-    "preview": "vite preview",
-    "generate:schemas": "node scripts/generate-schemas.js",
-    "deploy": "npm run build && wrangler deploy",
-    "deploy:staging": "npm run build && wrangler deploy --env staging",
-    "deploy:production": "npm run build && wrangler deploy --env production",
-    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 110",
-    "lint:fix": "eslint . --ext ts,tsx --fix",
-    "typecheck": "tsc --noEmit",
-    "format": "prettier --write \"src/**/*.{ts,tsx}\"",
-    "ci": "npm run generate:schemas && npm run typecheck && npm run lint && npm run build",
-    "test:build": "npm run build && npm run preview",
-    "clean": "rm -rf dist node_modules src/schemas/generated-schemas.ts",
-    "clean:schemas": "rm -f src/schemas/*.json src/schemas/generated-schemas.ts"
+      "dev": "npm run generate:schemas && vite",
+      "build": "npm run generate:schemas && vite build",
+      "preview": "vite preview",
+      "generate:schemas": "node scripts/generate-schemas.js",
+      "deploy": "npm run build && wrangler deploy",
+      "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 110",
+      "lint:fix": "eslint . --ext ts,tsx --fix",
+      "typecheck": "tsc --noEmit",
+      "format": "prettier --write \"src/**/*.{ts,tsx}\"",
+      "ci": "npm run generate:schemas && npm run typecheck && npm run lint && npm run build",
+      "clean": "rm -rf dist node_modules src/schemas/generated-schemas.ts"
       },
   "dependencies": {
     "@hookform/resolvers": "^3.3.2",
@@ -72,7 +67,6 @@
     "zod": "^3.22.4"
   },
   "devDependencies": {
-    "@cloudflare/vite-plugin": "^1.12.2",
     "@types/react": "^18.2.15",
     "@types/react-dom": "^18.2.7",
     "@typescript-eslint/eslint-plugin": "^6.0.0",

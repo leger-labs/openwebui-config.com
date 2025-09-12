@@ -5,8 +5,7 @@ import path from 'path'
 
 export default defineConfig({
   plugins: [
-    react(),
-    cloudflare() // Add Cloudflare plugin
+    react()
   ],
   resolve: {
     alias: {
