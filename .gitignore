@@ -9,10 +9,6 @@ dist/
 build/
 .vite/
 
-# Generated schemas
-src/schemas/generated-schemas.ts
-src/schemas/*.json
-
 # Environment files
 .env
 .env.local
